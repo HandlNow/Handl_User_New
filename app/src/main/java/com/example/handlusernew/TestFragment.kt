@@ -1,26 +1,12 @@
 package com.example.handlusernew
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Button
-import androidx.compose.material.DrawerValue
-import androidx.compose.material.Text
-import androidx.compose.material.rememberDrawerState
-import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 
-import androidx.navigation.Navigation
-import com.example.handlusernew.databinding.FragmentBlankBinding
-import kotlinx.coroutines.launch
+import com.example.handlusernew.databinding.FragmentTestBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -36,7 +22,7 @@ class BlankFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    private var _binding:FragmentBlankBinding?=null
+    private var _binding:FragmentTestBinding?=null
 
     private val binding get() = _binding!!
 
@@ -60,10 +46,10 @@ class BlankFragment : Fragment() {
     ): View? {
 
 
-        val view = inflater.inflate(R.layout.fragment_blank, container, false)
+        val view = inflater.inflate(R.layout.fragment_test, container, false)
 
       //  _binding = FragmentBlankBinding.inflate(inflater,container,false)
-        _binding = FragmentBlankBinding.bind(view)
+        _binding = FragmentTestBinding.bind(view)
 //
 
       //  val view = _binding?.root

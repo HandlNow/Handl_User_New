@@ -2,6 +2,7 @@ package com.example.handlusernew
 
 import android.os.Bundle
 import android.view.*
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -16,13 +17,14 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.fragment.app.Fragment
-import com.example.handlusernew.databinding.FragmentBlankBinding
 import com.example.handlusernew.databinding.FragmentMainScreenBinding
 import kotlinx.coroutines.launch
 
@@ -129,7 +131,7 @@ class MainScreenFragment : Fragment() {
             drawerContent = {
                 Column(
                     modifier = Modifier
-                        // .background(Color(0xFFFFFAF0))
+                        .background(Color(R.color.dark_blue_color))
                         .fillMaxSize()
                 ) {
                     Box(
@@ -228,7 +230,7 @@ class MainScreenFragment : Fragment() {
                         }
                     },
 
-                    //   backgroundColor = Color(0xFF5FA777),
+                    backgroundColor = Color(R.color.dark_blue_color),
                     elevation = AppBarDefaults.TopAppBarElevation
                 )
             },
@@ -236,7 +238,7 @@ class MainScreenFragment : Fragment() {
             content = {
                 Box(
                     Modifier
-                        //.background(Color(0XFFE3DAC9))
+                        .background(Color(R.color.dark_blue_color))
                         .padding(16.dp)
                         .fillMaxSize(),
                 ) {

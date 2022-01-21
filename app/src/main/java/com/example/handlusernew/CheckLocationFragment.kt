@@ -1,49 +1,34 @@
 package com.example.handlusernew
 
 import android.Manifest
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import com.google.android.gms.maps.OnMapReadyCallback
-
-import com.google.android.gms.maps.GoogleMap
-
-import android.R
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.PackageManager
-import android.location.*
+import android.location.Geocoder
+import android.location.Location
+import android.location.LocationManager
+import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import androidx.lifecycle.Transformations.map
+import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
-import androidx.navigation.findNavController
-import com.example.handlusernew.databinding.FragmentBlankBinding
 import com.example.handlusernew.databinding.FragmentSecondBinding
 import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.GeofencingClient
 import com.google.android.gms.location.LocationRequest.PRIORITY_HIGH_ACCURACY
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
-
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.*
-import com.google.android.gms.tasks.CancellationToken
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.tasks.CancellationTokenSource
-import com.google.android.gms.tasks.OnSuccessListener
 import com.google.android.gms.tasks.Task
-import com.google.android.material.snackbar.Snackbar
-import java.lang.Exception
-import java.security.AccessController.getContext
 import java.util.*
-
-
-
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -53,12 +38,11 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [SecondFragment.newInstance] factory method to
+ * Use the [CheckLocationFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class SecondFragment : Fragment(),OnMapReadyCallback {
-    private var param1: String? = null
-    private var param2: String? = null
+class CheckLocationFragment : Fragment(),OnMapReadyCallback {
+
 
     private var fusedLocationClient: FusedLocationProviderClient?=null
 
@@ -155,7 +139,7 @@ class SecondFragment : Fragment(),OnMapReadyCallback {
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            SecondFragment().apply {
+            CheckLocationFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
