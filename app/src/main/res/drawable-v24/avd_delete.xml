@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ @copyright : ToXSL Technologies Pvt. Ltd. < www.toxsl.com >
+  ~ @author     : Shiv Charan Panjeta < shiv@toxsl.com >
+  ~ All Rights Reserved.
+  ~ Proprietary and confidential :  All information contained herein is, and remains
+  ~ the property of ToXSL Technologies Pvt. Ltd. and its partners.
+  ~ Unauthorized copying of this file, via any medium is strictly prohibited.
+  -->
+
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:drawable="@drawable/ic_delete_white_24dp"
+    tools:targetApi="lollipop">
+
+    <target android:name="cap">
+        <aapt:attr name="android:animation">
+            <set xmlns:android="http://schemas.android.com/apk/res/android"
+                android:ordering="sequentially">
+                <objectAnimator
+                    android:duration="100"
+                    android:propertyName="translateY"
+                    android:valueFrom="0"
+                    android:valueTo="-1.5"
+                    android:valueType="floatType" />
+                <objectAnimator
+                    android:duration="10"
+                    android:propertyName="rotation"
+                    android:valueFrom="0"
+                    android:valueTo="15" />
+                <objectAnimator
+                    android:duration="100"
+                    android:propertyName="rotation"
+                    android:repeatCount="3"
+                    android:repeatMode="reverse"
+                    android:valueFrom="15"
+                    android:valueTo="-15" />
+                <objectAnimator
+                    android:duration="10"
+                    android:propertyName="rotation"
+                    android:valueFrom="15"
+                    android:valueTo="0" />
+                <objectAnimator
+                    android:duration="100"
+                    android:propertyName="translateY"
+                    android:valueFrom="-1.5"
+                    android:valueTo="0"
+                    android:valueType="floatType" />
+            </set>
+        </aapt:attr>
+    </target>
+</animated-vector>

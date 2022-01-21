@@ -1,0 +1,31 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.HandlUserNew" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="android:windowSplashScreenAnimationDuration" tools:targetApi="s">2000</item>
+        <item name="android:windowSplashScreenBackground" tools:targetApi="s">@color/White</item>
+        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="s">@drawable/ic_logo</item>
+
+
+<!--        <item name="android:windowTranslucentStatus">true</item>-->
+
+        <item name="colorPrimary">@color/Teal</item>
+        <item name="colorPrimaryVariant">@color/Purple</item>
+        <item name="colorOnPrimary">@color/Teal</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/Teal</item>
+        <item name="colorSecondaryVariant">@color/Teal</item>
+        <item name="colorOnSecondary">@color/blue_color</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+    <style name="Theme.HandlUserNew.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.HandlUserNew.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.HandlUserNew.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+</resources>

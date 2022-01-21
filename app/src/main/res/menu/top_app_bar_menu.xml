@@ -1,0 +1,22 @@
+
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <item
+        android:id="@+id/notiIV"
+        android:icon="@mipmap/ic_not"
+        app:actionLayout="@layout/layout_notification"
+        android:title="@string/notification"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/menuIV"
+        android:icon="@mipmap/ic_menu"
+        android:title="@string/menu"
+        app:showAsAction="always" />
+
+
+</menu>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ @copyright : ToXSL Technologies Pvt. Ltd. < www.toxsl.com >
+  ~ @author     : Shiv Charan Panjeta < shiv@toxsl.com >
+  ~ All Rights Reserved.
+  ~ Proprietary and confidential :  All information contained herein is, and remains
+  ~ the property of ToXSL Technologies Pvt. Ltd. and its partners.
+  ~ Unauthorized copying of this file, via any medium is strictly prohibited.
+  -->
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<!--    <data>-->
+
+<!--&lt;!&ndash;        <variable&ndash;&gt;-->
+<!--&lt;!&ndash;            name="handleClick"&ndash;&gt;-->
+<!--&lt;!&ndash;            type="com.handlUser.app.utils.ClickHandler" />&ndash;&gt;-->
+
+<!--    </data>-->
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/White">
+
+
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/shareTV"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+
+            <FrameLayout
+                android:id="@+id/mapFrame"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <androidx.fragment.app.FragmentContainerView
+                    android:id="@+id/frg"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+
+                <!--                <fragment xmlns:map="http://schemas.android.com/apk/res-auto"-->
+                <!--                    android:name="com.google.android.gms.maps.SupportMapFragment"-->
+                <!--                    android:id="@+id/map"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="match_parent"/>-->
+
+                <!--                <fragment-->
+                <!--                    android:id="@+id/mapV"-->
+                <!--                    android:name="com.google.android.gms.maps.SupportMapFragment"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="match_parent"-->
+
+                <!--                    />-->
+
+                <!--                <com.google.android.gms.maps.MapView-->
+                <!--                    android:id="@+id/mapView"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="match_parent"-->
+                <!--                    tools:ignore="SpeakableTextPresentCheck" />-->
+
+                <!--                <androidx.fragment.app.FragmentContainerView xmlns:map="http://schemas.android.com/apk/res-auto"-->
+                <!--                    android:name="com.google.android.gms.maps.SupportMapFragment"-->
+                <!--                    android:id="@+id/map"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="match_parent"/>-->
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/markerIV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/ic_red_location"
+                    android:visibility="gone" />
+
+
+            </FrameLayout>
+
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/cityET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="@color/White"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:fontFamily="@font/lato_regular"
+                android:hint="@string/title_activity_main"
+                android:imeOptions="actionNext"
+                android:longClickable="false"
+                android:minHeight="48dp"
+                android:padding="10dp"
+                android:singleLine="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/codeET"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@color/White"
+                android:fontFamily="@font/lato_regular"
+                android:hint="@string/postal_code"
+                android:imeOptions="actionDone"
+                android:minHeight="48dp"
+                android:padding="10dp"
+                android:singleLine="true"
+                app:layout_constraintEnd_toEndOf="@+id/cityET"
+                app:layout_constraintStart_toStartOf="@+id/cityET"
+                app:layout_constraintTop_toBottomOf="@+id/cityET" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/shareTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:background="@drawable/light_blue_button"
+            android:fontFamily="@font/lato_regular"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/confirm_location"
+            android:textColor="#4E342E"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+<!--        <Button-->
+<!--            android:id="@+id/button2"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@drawable/light_blue_button"-->
+<!--            android:text="@string/confirm_location"-->
+<!--            android:textSize="13sp"-->
+<!--            app:layout_constraintEnd_toStartOf="@+id/constraintLayout"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

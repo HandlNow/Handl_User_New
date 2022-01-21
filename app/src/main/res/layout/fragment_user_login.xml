@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserLoginFragment">
+
+    <!--    <EditText-->    <!--        android:id="@+id/emailET"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginHorizontal="20dp"-->
+    <!--        android:layout_marginVertical="@dimen/_50dp"-->
+    <!--        android:layout_marginTop="24dp"-->
+    <!--        android:autofillHints=""-->
+    <!--        android:background="@color/White"-->
+    <!--        android:fontFamily="@font/lato_regular"-->
+    <!--        android:hint="@string/email_address"-->
+    <!--        android:imeOptions="actionNext"-->
+    <!--        android:inputType="textEmailAddress"-->
+    <!--        android:minHeight="48dp"-->
+    <!--        android:padding="10dp"-->
+    <!--        android:paddingStart="@dimen/_10dp"-->
+    <!--        android:paddingEnd="@dimen/_10dp"-->
+    <!--        android:singleLine="true"-->
+    <!--        android:textColorHint="@color/text_hint_color"-->
+    <!--        android:textSize="14sp"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.6"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/logoIV" />-->
+
+    <!--    <androidx.fragment.app.FragmentContainerView-->
+    <!--        android:id="@id/fragment"-->
+    <!--        android:name="com.example.handlusernew.LoginFragment"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content" />-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/screen_bg">
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/logoIV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_70sdp"
+            android:src="@mipmap/ic_logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/emailET"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:layout_marginVertical="@dimen/_50sdp"
+            android:background="@color/White"
+            android:fontFamily="@font/lato_regular"
+            android:hint="@string/email_address"
+            android:imeOptions="actionNext"
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp"
+            android:padding="@dimen/_10sdp"
+            android:paddingStart="@dimen/_20sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:singleLine="true"
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/logoIV" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/passET"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@color/White"
+            android:fontFamily="@font/lato_regular"
+            android:hint="@string/password"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:padding="@dimen/_10sdp"
+            android:paddingStart="@dimen/_20sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:singleLine="true"
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintEnd_toEndOf="@+id/emailET"
+            app:layout_constraintStart_toStartOf="@+id/emailET"
+            app:layout_constraintTop_toBottomOf="@id/emailET" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/forgotTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato_regular"
+            android:gravity="center"
+            android:padding="@dimen/_5sdp"
+            android:text="@string/forgot_password"
+            android:textColor="#0277BD"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintBottom_toBottomOf="@+id/checkCB"
+            app:layout_constraintEnd_toEndOf="@+id/passET"
+            app:layout_constraintTop_toBottomOf="@+id/passET"
+            app:layout_constraintTop_toTopOf="@+id/checkCB" />
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/checkCB"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:button="@drawable/login_check"
+            android:fontFamily="@font/lato_regular"
+            android:gravity="center"
+            android:padding="@dimen/_5sdp"
+            android:text="@string/remember_me"
+            android:textColor="@color/mid_blue"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintStart_toStartOf="@+id/passET"
+            app:layout_constraintTop_toBottomOf="@+id/passET" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/loginTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/light_blue_button"
+            android:fontFamily="@font/lato_regular"
+            android:gravity="center"
+            android:padding="@dimen/_10sdp"
+            android:text="@string/log_inn"
+            android:textColor="#4E342E"
+            app:layout_constraintEnd_toEndOf="@+id/passET"
+            app:layout_constraintStart_toStartOf="@+id/passET"
+            app:layout_constraintTop_toBottomOf="@+id/forgotTV" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
