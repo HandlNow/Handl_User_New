@@ -53,26 +53,29 @@ class MainActivity : AppCompatActivity() {
             // Hide the status bar.
 
 
-            MaterialAlertDialogBuilder(this)
-                .setTitle(resources.getString(R.string.booking))
-                .setMessage(resources.getString(R.string.email_id))
-                .setNeutralButton(resources.getString(R.string.cancel)) { dialog, which ->
-                    // Respond to neutral button press
-                    setContentView(R.layout.activity_main)
+            setContentView(R.layout.activity_main)
 
-                }
-                .setNegativeButton(resources.getString(R.string.decline)) { dialog, which ->
-                    // Respond to negative button press
-                    setContentView(R.layout.activity_main)
-
-                }
-                .setPositiveButton(resources.getString(R.string.enter_emial_id)) { dialog, which ->
-
-                    setContentView(R.layout.activity_main)
-
-                    // Respond to positive button press
-                }
-                .show()
+//
+//            MaterialAlertDialogBuilder(this)
+//                .setTitle(resources.getString(R.string.booking))
+//                .setMessage(resources.getString(R.string.email_id))
+//                .setNeutralButton(resources.getString(R.string.cancel)) { dialog, which ->
+//                    // Respond to neutral button press
+//                    setContentView(R.layout.activity_main)
+//
+//                }
+//                .setNegativeButton(resources.getString(R.string.decline)) { dialog, which ->
+//                    // Respond to negative button press
+//                    setContentView(R.layout.activity_main)
+//
+//                }
+//                .setPositiveButton(resources.getString(R.string.enter_emial_id)) { dialog, which ->
+//
+//                    setContentView(R.layout.activity_main)
+//
+//                    // Respond to positive button press
+//                }
+//                .show()
 
         }
 

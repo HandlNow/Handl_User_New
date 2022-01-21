@@ -69,10 +69,10 @@ class BlankFragment : Fragment() {
       //  val view = _binding?.root
 
 
-        _binding?.button?.setOnClickListener {
-            Log.d("hello","world !!")
-            Navigation.findNavController(view).navigate(R.id.navigateToSecond)
-        }
+//        _binding?.button?.setOnClickListener {
+//            Log.d("hello","world !!")
+//            Navigation.findNavController(view).navigate(R.id.navigateToSecond)
+//        }
 
 
 

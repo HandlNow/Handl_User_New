@@ -193,9 +193,9 @@ class SecondFragment : Fragment(),OnMapReadyCallback {
 //
         googleMap=p0
 //
-        googleMap?.setMapStyle(
-            MapStyleOptions.loadRawResourceStyle(
-                requireActivity().applicationContext, com.example.handlusernew.R.raw.styled))
+//        googleMap?.setMapStyle(
+//            MapStyleOptions.loadRawResourceStyle(
+//                requireActivity().applicationContext, com.example.handlusernew.R.raw.styled))
 
         if (isLocationEnabled()){
             getUserLocation()
