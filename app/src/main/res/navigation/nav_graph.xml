@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/secondFragment">
+    app:startDestination="@id/locationFragment">
 
     <fragment
-        android:id="@+id/secondFragment"
+        android:id="@+id/locationFragment"
         android:name="com.example.handlusernew.CheckLocationFragment"
-        android:label="fragment_second"
-        tools:layout="@layout/fragment_second" >
+        android:label="fragment_location"
+        tools:layout="@layout/fragment_checklocation">
         <action
             android:id="@+id/action_secondFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
@@ -21,7 +21,7 @@
         tools:layout="@layout/fragment_user_login" >
         <action
             android:id="@+id/action_loginFragment_to_secondFragment"
-            app:destination="@id/secondFragment" />
+            app:destination="@id/locationFragment" />
         <action
             android:id="@+id/action_loginFragment_to_mainScreenFragment"
             app:destination="@id/mainScreenFragment" />

@@ -16,7 +16,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
-import com.example.handlusernew.databinding.FragmentSecondBinding
+import com.example.handlusernew.databinding.FragmentChecklocationBinding
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationRequest.PRIORITY_HIGH_ACCURACY
 import com.google.android.gms.location.LocationServices
@@ -44,6 +44,12 @@ private const val ARG_PARAM2 = "param2"
 class CheckLocationFragment : Fragment(),OnMapReadyCallback {
 
 
+
+    private var _binding: FragmentChecklocationBinding? = null
+    // This property is only valid between onCreateView and
+// onDestroyView.
+    private val binding get() = _binding!!
+
     private var fusedLocationClient: FusedLocationProviderClient?=null
 
     private var myLocation:Location?=null
@@ -67,17 +73,14 @@ class CheckLocationFragment : Fragment(),OnMapReadyCallback {
 
 
 
-    private var _binding: FragmentSecondBinding? = null
-    // This property is only valid between onCreateView and
-// onDestroyView.
-    private val binding get() = _binding!!
+
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(com.example.handlusernew.R.layout.fragment_second, container, false)
+        val view = inflater.inflate(com.example.handlusernew.R.layout.fragment_checklocation, container, false)
 
 
         myLocation = Location("maps")
@@ -92,7 +95,7 @@ class CheckLocationFragment : Fragment(),OnMapReadyCallback {
         mapFragment.getMapAsync(this)
 
 
-        _binding = FragmentSecondBinding.bind(view)
+        _binding = FragmentChecklocationBinding.bind(view)
 
 
 
