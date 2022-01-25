@@ -44,7 +44,6 @@ class UserLoginFragment : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_user_login, container, false)
 
-        //  _binding = FragmentBlankBinding.inflate(inflater,container,false)
         _binding = FragmentUserLoginBinding.bind(view)
 
 

@@ -8,8 +8,8 @@
     <fragment
         android:id="@+id/locationFragment"
         android:name="com.example.handlusernew.CheckLocationFragment"
-        android:label="fragment_location"
-        tools:layout="@layout/fragment_checklocation">
+        tools:layout="@layout/fragment_checklocation"
+        android:label="fragment_location">
         <action
             android:id="@+id/action_secondFragment_to_loginFragment"
             app:destination="@id/loginFragment" />

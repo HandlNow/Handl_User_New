@@ -1,6 +1,7 @@
 package com.example.handlusernew
 
 import android.app.Activity
+import android.app.PendingIntent.getActivity
 import android.content.Context
 import android.location.LocationManager
 import android.util.Log
@@ -11,6 +12,18 @@ import com.google.android.gms.location.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import java.lang.Exception
+import com.google.android.gms.location.LocationSettingsStatusCodes
+
+import android.content.IntentSender
+import android.content.IntentSender.SendIntentException
+import com.google.android.gms.common.api.Status
+
+import com.google.android.gms.location.LocationSettingsStates
+
+import com.google.android.gms.location.LocationSettingsResult
+import com.google.android.gms.tasks.Task
+import android.content.Intent
+import com.google.android.gms.common.api.PendingResult
 
 
 class GPSUtils(context: Context) {
@@ -19,11 +32,15 @@ class GPSUtils(context: Context) {
     private val mContext: Context = context
 
 
-    private var mSettingClient: SettingsClient? = null
-    private var mLocationSettingsRequest: LocationSettingsRequest? = null
+     var mSettingClient: SettingsClient? = null
+     var mLocationSettingsRequest: LocationSettingsRequest? = null
 
-    private var mLocationManager: LocationManager? = null
-    private var mLocationRequest: LocationRequest? = null
+     var mLocationManager: LocationManager? = null
+     var mLocationRequest: LocationRequest? = null
+
+     var task:Task<LocationSettingsResponse>?=null
+
+    var result: PendingResult<LocationSettingsResult>? = null
 
 
     init {
@@ -42,17 +59,25 @@ class GPSUtils(context: Context) {
             val builder: LocationSettingsRequest.Builder = LocationSettingsRequest.Builder()
             builder.addLocationRequest(mLocationRequest!!)
             mLocationSettingsRequest = builder.build()
+
+
+
         }
     }
 
     private var GPSCODE = 123
 
+    /**
+     this function check if the GPS it turned off and turns it on
+     */
     fun turnOnGPS() {
         if (mLocationManager?.isProviderEnabled(LocationManager.GPS_PROVIDER) == false) {
             mLocationSettingsRequest?.let {
-                mSettingClient?.checkLocationSettings(it)
+               task = mSettingClient?.checkLocationSettings(it)
                     ?.addOnSuccessListener(mContext as Activity) {
                         Log.d(TAG, "turnOnGPS: Already Enabled")
+
+
                     }
                     ?.addOnFailureListener { ex ->
                         if ((ex as ApiException).statusCode
@@ -64,6 +89,7 @@ class GPSUtils(context: Context) {
                                     mContext,
                                     GPSCODE
                                 )
+
                             } catch (e: Exception) {
                                 Log.d(TAG, "turnOnGPS: Unable to start default functionality of GPS")
                             }
@@ -82,9 +108,15 @@ class GPSUtils(context: Context) {
                             }
                         }
                     }
+
+
             }
         }
     }
+
+
+
+
 
 
 

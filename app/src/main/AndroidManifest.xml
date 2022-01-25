@@ -12,6 +12,7 @@
         android:smallScreens="true"
         android:xlargeScreens="true" />
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <uses-permission android:name="android.permission.ACCESS_GPS" />
@@ -45,8 +46,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".SplashActivity"
-            />
 
         <meta-data
             android:name="com.google.android.gms.version"
