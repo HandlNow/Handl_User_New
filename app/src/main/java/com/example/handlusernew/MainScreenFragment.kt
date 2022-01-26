@@ -21,6 +21,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.handlusernew.adapter.ItemDetailModel
+import com.example.handlusernew.adapter.MainScreenFragmentAdapter
+import com.example.handlusernew.adapter.MainScreenModel
 import com.example.handlusernew.databinding.FragmentMainScreenBinding
 import kotlinx.coroutines.launch
 
@@ -42,7 +46,6 @@ class MainScreenFragment : Fragment() {
 
     private var _binding: FragmentMainScreenBinding? = null
 
-    private val binding get() = _binding!!
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -62,6 +65,7 @@ class MainScreenFragment : Fragment() {
 
         _binding = FragmentMainScreenBinding.bind(view)
 
+        setRecycler()
         // _binding
 
 //        topAppBar.setNavigationOnClickListener {
@@ -85,6 +89,27 @@ class MainScreenFragment : Fragment() {
 //        }
 
         /// return view
+    }
+
+    private fun setRecycler() {
+        val array : ArrayList<ItemDetailModel> = ArrayList()
+        array.add(ItemDetailModel("Hey Babe" , R.drawable.bg_gradient))
+        array.add(ItemDetailModel("Hey Babe" , R.drawable.bg_gradient))
+        array.add(ItemDetailModel("Hey Babe" , R.drawable.bg_gradient))
+        array.add(ItemDetailModel("Hey Babe" , R.drawable.bg_gradient))
+        array.add(ItemDetailModel("Hey Babe" , R.drawable.bg_gradient))
+        array.add(ItemDetailModel("Hey Babe" , R.drawable.bg_gradient))
+        val arrayFinal : ArrayList<MainScreenModel> = ArrayList()
+        arrayFinal.clear()
+        arrayFinal.add(MainScreenModel("Kids" , array))
+        arrayFinal.add(MainScreenModel("Boys" , array))
+        arrayFinal.add(MainScreenModel("Girls" , array))
+        arrayFinal.add(MainScreenModel("Gays" , array))
+        arrayFinal.add(MainScreenModel("Afrahs" , array))
+        _binding?.dataRecycler?.layoutManager = LinearLayoutManager(requireContext())
+        val adapter  = MainScreenFragmentAdapter(requireContext() , arrayFinal)
+        _binding?.dataRecycler?.adapter = adapter
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
