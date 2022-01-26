@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.handlusernew.adapter.ItemDetailModel
 import com.example.handlusernew.adapter.MainScreenFragmentAdapter
 import com.example.handlusernew.adapter.MainScreenModel
@@ -93,20 +94,20 @@ class MainScreenFragment : Fragment() {
 
     private fun setRecycler() {
         val array : ArrayList<ItemDetailModel> = ArrayList()
-        array.add(ItemDetailModel("Hey Babe" , R.drawable.bg_gradient))
-        array.add(ItemDetailModel("Hey Babe" , R.drawable.bg_gradient))
-        array.add(ItemDetailModel("Hey Babe" , R.drawable.bg_gradient))
-        array.add(ItemDetailModel("Hey Babe" , R.drawable.bg_gradient))
-        array.add(ItemDetailModel("Hey Babe" , R.drawable.bg_gradient))
-        array.add(ItemDetailModel("Hey Babe" , R.drawable.bg_gradient))
+        array.add(ItemDetailModel("House cleaning" , R.drawable.bg_gradient))
+        array.add(ItemDetailModel("Matter, Carpet and sofa cleaning" , R.drawable.bg_gradient))
+        array.add(ItemDetailModel("Wall Painting" , R.drawable.bg_gradient))
+        array.add(ItemDetailModel("Garden Service" , R.drawable.bg_gradient))
+//        array.add(ItemDetailModel("Hey Babe" , R.drawable.bg_gradient))
+//        array.add(ItemDetailModel("Hey Babe" , R.drawable.bg_gradient))
         val arrayFinal : ArrayList<MainScreenModel> = ArrayList()
         arrayFinal.clear()
-        arrayFinal.add(MainScreenModel("Kids" , array))
-        arrayFinal.add(MainScreenModel("Boys" , array))
-        arrayFinal.add(MainScreenModel("Girls" , array))
-        arrayFinal.add(MainScreenModel("Gays" , array))
-        arrayFinal.add(MainScreenModel("Afrahs" , array))
-        _binding?.dataRecycler?.layoutManager = LinearLayoutManager(requireContext())
+        arrayFinal.add(MainScreenModel("Cleaning Service" , array))
+        arrayFinal.add(MainScreenModel("House Service" , array))
+        arrayFinal.add(MainScreenModel("Childcare & Teach" , array))
+//        arrayFinal.add(MainScreenModel("Gays" , array))
+//        arrayFinal.add(MainScreenModel("Afrahs" , array))
+        _binding?.dataRecycler?.layoutManager = LinearLayoutManager(requireContext(),RecyclerView.VERTICAL,false)
         val adapter  = MainScreenFragmentAdapter(requireContext() , arrayFinal)
         _binding?.dataRecycler?.adapter = adapter
 
@@ -123,7 +124,7 @@ class MainScreenFragment : Fragment() {
 
             }
             R.id.menuIV -> {
-
+                (requireActivity() as? DrawerStateInterface)?.openDrawer()
 //                GlobalScope.launch(MonotonicFrameClock()) {
 //                    scaffoldState?.drawerState?.open()
 //                }

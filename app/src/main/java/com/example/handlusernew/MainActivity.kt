@@ -13,11 +13,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.core.view.GravityCompat
+import com.example.handlusernew.databinding.ActivityMainBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), DrawerStateInterface {
 
+    lateinit var binding: ActivityMainBinding
 
     @Preview
     @Composable
@@ -30,8 +33,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         installSplashScreen()
 
-
-        setTheme(R.style.Theme_HandlUserNew)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+//        binding.drawerLayout?.openDrawer()
+//        setTheme(R.style.Theme_HandlUserNew)
         //
         setContent {
             //   SimpleComposable(this)
@@ -44,17 +48,17 @@ class MainActivity : AppCompatActivity() {
                 .setMessage(resources.getString(R.string.email_id))
                 .setNeutralButton(resources.getString(R.string.cancel)) { dialog, which ->
                     // Respond to neutral button press
-                    setContentView(R.layout.activity_main)
+                    setContentView(binding.root)
 
                 }
                 .setNegativeButton(resources.getString(R.string.decline)) { dialog, which ->
                     // Respond to negative button press
-                    setContentView(R.layout.activity_main)
+                    setContentView(binding.root)
 
                 }
                 .setPositiveButton(resources.getString(R.string.enter_emial_id)) { dialog, which ->
 
-                    setContentView(R.layout.activity_main)
+                    setContentView(binding.root)
 
                     // Respond to positive button press
                 }
@@ -63,6 +67,18 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+    }
+
+    override fun openDrawer(direction: Int) {
+        if (binding.drawerLayout.isDrawerOpen(direction)) {
+            closeDrawer(direction)
+        } else {
+            binding.drawerLayout.openDrawer(direction, true)
+        }
+    }
+
+    override fun closeDrawer(direction: Int) {
+        binding.drawerLayout.closeDrawer(direction, true)
     }
 
 }
@@ -81,4 +97,14 @@ fun SimpleComposable(context: Context) {
     }
 }
 
+interface DrawerStateInterface {
+    //@EdgeGravity
+//    @IntDef(
+//        value = [Gravity.LEFT, Gravity.RIGHT, GravityCompat.START, GravityCompat.END, Gravity.NO_GRAVITY],
+//        flag = true
+//    )
+    fun openDrawer(direction: Int = GravityCompat.END)
+    fun closeDrawer(direction: Int = GravityCompat.START)
+
+}
 
