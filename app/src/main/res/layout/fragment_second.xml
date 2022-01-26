@@ -6,26 +6,23 @@
   ~ the property of ToXSL Technologies Pvt. Ltd. and its partners.
   ~ Unauthorized copying of this file, via any medium is strictly prohibited.
   -->
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-<!--    <data>-->
+    <!--    <data>-->
 
-<!--&lt;!&ndash;        <variable&ndash;&gt;-->
-<!--&lt;!&ndash;            name="handleClick"&ndash;&gt;-->
-<!--&lt;!&ndash;            type="com.handlUser.app.utils.ClickHandler" />&ndash;&gt;-->
+    <!--&lt;!&ndash;        <variable&ndash;&gt;-->
+    <!--&lt;!&ndash;            name="handleClick"&ndash;&gt;-->
+    <!--&lt;!&ndash;            type="com.handlUser.app.utils.ClickHandler" />&ndash;&gt;-->
 
-<!--    </data>-->
+    <!--    </data>-->
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/White">
-
-
-
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -37,7 +34,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
-
 
 
             <FrameLayout
@@ -152,16 +148,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-<!--        <Button-->
-<!--            android:id="@+id/button2"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:background="@drawable/light_blue_button"-->
-<!--            android:text="@string/confirm_location"-->
-<!--            android:textSize="13sp"-->
-<!--            app:layout_constraintEnd_toStartOf="@+id/constraintLayout"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent" />-->
+        <!--        <Button-->
+        <!--            android:id="@+id/button2"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:background="@drawable/light_blue_button"-->
+        <!--            android:text="@string/confirm_location"-->
+        <!--            android:textSize="13sp"-->
+        <!--            app:layout_constraintEnd_toStartOf="@+id/constraintLayout"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent" />-->
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

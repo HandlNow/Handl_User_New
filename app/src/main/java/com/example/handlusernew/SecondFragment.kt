@@ -1,49 +1,35 @@
 package com.example.handlusernew
 
 import android.Manifest
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import com.google.android.gms.maps.OnMapReadyCallback
-
-import com.google.android.gms.maps.GoogleMap
-
-import android.R
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.PackageManager
-import android.location.*
+import android.location.Geocoder
+import android.location.Location
+import android.location.LocationManager
+import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import androidx.lifecycle.Transformations.map
+import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
-import androidx.navigation.findNavController
-import com.example.handlusernew.databinding.FragmentBlankBinding
 import com.example.handlusernew.databinding.FragmentSecondBinding
 import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.GeofencingClient
 import com.google.android.gms.location.LocationRequest.PRIORITY_HIGH_ACCURACY
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
-
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.*
-import com.google.android.gms.tasks.CancellationToken
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MapStyleOptions
+import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.tasks.CancellationTokenSource
-import com.google.android.gms.tasks.OnSuccessListener
 import com.google.android.gms.tasks.Task
-import com.google.android.material.snackbar.Snackbar
-import java.lang.Exception
-import java.security.AccessController.getContext
 import java.util.*
-
-
-
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -56,17 +42,17 @@ private const val ARG_PARAM2 = "param2"
  * Use the [SecondFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class SecondFragment : Fragment(),OnMapReadyCallback {
+class SecondFragment : Fragment(), OnMapReadyCallback {
     private var param1: String? = null
     private var param2: String? = null
 
-    private var fusedLocationClient: FusedLocationProviderClient?=null
+    private var fusedLocationClient: FusedLocationProviderClient? = null
 
-    private var myLocation:Location?=null
+    private var myLocation: Location? = null
 
-    private var googleMap:GoogleMap?=null
+    private var googleMap: GoogleMap? = null
 
-    private var geocoder:Geocoder?=null
+    private var geocoder: Geocoder? = null
 
     val REQUEST_LOCATION = 199
 
@@ -82,8 +68,8 @@ class SecondFragment : Fragment(),OnMapReadyCallback {
         }
 
 
-
     private var _binding: FragmentSecondBinding? = null
+
     // This property is only valid between onCreateView and
 // onDestroyView.
     private val binding get() = _binding!!
@@ -93,7 +79,8 @@ class SecondFragment : Fragment(),OnMapReadyCallback {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(com.example.handlusernew.R.layout.fragment_second, container, false)
+        val view =
+            inflater.inflate(com.example.handlusernew.R.layout.fragment_second, container, false)
 
 
         myLocation = Location("maps")
@@ -103,7 +90,8 @@ class SecondFragment : Fragment(),OnMapReadyCallback {
         requestUserLocationForMainScreen()
 
 //
-        val mapFragment = childFragmentManager.findFragmentById(com.example.handlusernew.R.id.frg) as SupportMapFragment
+        val mapFragment =
+            childFragmentManager.findFragmentById(com.example.handlusernew.R.id.frg) as SupportMapFragment
 
         mapFragment.getMapAsync(this)
 
@@ -117,16 +105,13 @@ class SecondFragment : Fragment(),OnMapReadyCallback {
 
 
         _binding?.shareTV?.setOnClickListener {
-            Log.d("hello","world !!")
-           Navigation.findNavController(view).navigate(com.example.handlusernew.R.id.action_secondFragment_to_loginFragment)
+            Log.d("hello", "world !!")
+            Navigation.findNavController(view)
+                .navigate(com.example.handlusernew.R.id.action_secondFragment_to_loginFragment)
         }
 
 
-
-
-
         // initialize map fragment
-
 
 
         // getLastLocation()
@@ -137,11 +122,9 @@ class SecondFragment : Fragment(),OnMapReadyCallback {
 //        val view = binding.root
 
 
-
-
         return view
 
-        }
+    }
 
     companion object {
         /**
@@ -165,7 +148,8 @@ class SecondFragment : Fragment(),OnMapReadyCallback {
 
 
     private fun isLocationEnabled(): Boolean {
-        var locationManager = activity?.getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        var locationManager =
+            activity?.getSystemService(Context.LOCATION_SERVICE) as LocationManager
 
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(
             LocationManager.NETWORK_PROVIDER
@@ -186,22 +170,23 @@ class SecondFragment : Fragment(),OnMapReadyCallback {
         //fusedLocationClient = LocationServices.getFusedLocationProviderClient(this.requireContext())
 
 
-       // val mypos = LatLng(myLocation!!.latitude, myLocation!!.longitude)
+        // val mypos = LatLng(myLocation!!.latitude, myLocation!!.longitude)
 
-      //  val Sydney = LatLng(-122.412,37.7827)
+        //  val Sydney = LatLng(-122.412,37.7827)
 //
 //
-        googleMap=p0
+        googleMap = p0
 //
         googleMap?.setMapStyle(
             MapStyleOptions.loadRawResourceStyle(
-                requireActivity().applicationContext, com.example.handlusernew.R.raw.styled))
+                requireActivity().applicationContext, com.example.handlusernew.R.raw.styled
+            )
+        )
 
-        if (isLocationEnabled()){
+        if (isLocationEnabled()) {
             getUserLocation()
 
-        }
-        else{
+        } else {
             GPSUtils(requireActivity()).turnOnGPS()
             getUserLocation()
 
@@ -219,12 +204,12 @@ class SecondFragment : Fragment(),OnMapReadyCallback {
 //        googleMap?.moveCamera(CameraUpdateFactory.newLatLngZoom(Sydney, 12f))
 //
 //
-       //Log.d("place", myLocation?.longitude.toString())
+        //Log.d("place", myLocation?.longitude.toString())
 
 
-       // GetUserLocation()
+        // GetUserLocation()
 
-     //   var location = fusedLocationClient.requestLocationUpdates()
+        //   var location = fusedLocationClient.requestLocationUpdates()
 
 //        val mypos = LatLng(0.0,0.0)
 //        p0.addMarker(
@@ -235,9 +220,7 @@ class SecondFragment : Fragment(),OnMapReadyCallback {
 //        )
 //        p0.moveCamera(CameraUpdateFactory.newLatLngZoom(mypos,10f))
 
-        Log.d("TAG,","map added")
-
-
+        Log.d("TAG,", "map added")
 
 
 //
@@ -275,7 +258,7 @@ class SecondFragment : Fragment(),OnMapReadyCallback {
 
 // ...
 
-// Before you perform the actual permission request, check whether your app
+    // Before you perform the actual permission request, check whether your app
 // already has the permissions, and whether your app needs to show a permission
 // rationale dialog. For more details, see Request permissions.
 //        locationPermissionRequest.launch(arrayOf(
@@ -358,7 +341,10 @@ class SecondFragment : Fragment(),OnMapReadyCallback {
     private fun requestPermissions() {
         ActivityCompat.requestPermissions(
             requireActivity(),
-            arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION),
+            arrayOf(
+                Manifest.permission.ACCESS_COARSE_LOCATION,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ),
             REQUESTCODE
         )
     }
@@ -430,17 +416,17 @@ class SecondFragment : Fragment(),OnMapReadyCallback {
 
 
     private fun checkPermissions(): Boolean {
-    if (ActivityCompat.checkSelfPermission(
-            requireActivity(),
-            Manifest.permission.ACCESS_FINE_LOCATION
-        ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-            requireActivity(),
-            Manifest.permission.ACCESS_COARSE_LOCATION
-        ) != PackageManager.PERMISSION_GRANTED
-    ) {
-        return false
-    }
-    return true
+        if (ActivityCompat.checkSelfPermission(
+                requireActivity(),
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                requireActivity(),
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            return false
+        }
+        return true
 
     }
 
@@ -559,7 +545,7 @@ class SecondFragment : Fragment(),OnMapReadyCallback {
 //    }
 
     @SuppressLint("MissingPermission")
-    fun getUserLocation(){
+    fun getUserLocation() {
 
         if (checkPermissions()) {
             var cancellationToken = CancellationTokenSource()

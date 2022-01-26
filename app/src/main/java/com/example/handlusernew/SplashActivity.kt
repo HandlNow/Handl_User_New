@@ -1,10 +1,6 @@
 package com.example.handlusernew
 
-import android.content.Intent
-import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import java.util.*
 
 
 class SplashActivity : AppCompatActivity() {
@@ -13,8 +9,6 @@ class SplashActivity : AppCompatActivity() {
 //        setContentView(R.layout.activity_splash)
 //
 //    }
-
-
 
 
 //        Timer().schedule(object : TimerTask() {

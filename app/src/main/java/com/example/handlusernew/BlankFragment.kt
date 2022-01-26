@@ -2,25 +2,11 @@ package com.example.handlusernew
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Button
-import androidx.compose.material.DrawerValue
-import androidx.compose.material.Text
-import androidx.compose.material.rememberDrawerState
-import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
-
-import androidx.navigation.Navigation
+import androidx.fragment.app.Fragment
 import com.example.handlusernew.databinding.FragmentBlankBinding
-import kotlinx.coroutines.launch
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -71,7 +57,9 @@ class BlankFragment : Fragment() {
 
         _binding?.button?.setOnClickListener {
             Log.d("hello","world !!")
-            Navigation.findNavController(view).navigate(R.id.navigateToSecond)
+            requireActivity().onBackPressed()
+//            Navigation.findNavController(view).b
+//            Navigation.findNavController(view).navigate(R.id.navigateToSecond)
         }
 
 

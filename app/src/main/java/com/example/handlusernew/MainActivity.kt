@@ -4,51 +4,37 @@ import android.content.Context
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material.icons.filled.Refresh
-import androidx.compose.material.icons.filled.Search
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Divider
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import kotlinx.coroutines.launch
 
 
 class MainActivity : AppCompatActivity() {
 
 
-
     @Preview
     @Composable
-    fun ComposablePreview(){
+    fun ComposablePreview() {
         //MainContent()
     }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-          installSplashScreen()
+        installSplashScreen()
 
 
         setTheme(R.style.Theme_HandlUserNew)
-       //
-
+        //
         setContent {
-         //   SimpleComposable(this)
+            //   SimpleComposable(this)
 
             // Hide the status bar.
 
@@ -84,8 +70,6 @@ class MainActivity : AppCompatActivity() {
 @Composable
 fun SimpleComposable(context: Context) {
     Text("Hello World")
-
-
     Scaffold(
         drawerContent = {
             Text("Drawer title", modifier = Modifier.padding(16.dp))

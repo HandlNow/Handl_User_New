@@ -3,25 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/blankFragment">
-
-    <fragment
-        android:id="@+id/blankFragment"
-        android:name="com.example.handlusernew.BlankFragment"
-        android:label="fragment_blank"
-        tools:layout="@layout/fragment_blank" >
-        <action
-            android:id="@+id/navigateToSecond"
-            app:destination="@id/secondFragment" />
-    </fragment>
+    app:startDestination="@id/secondFragment">
+<!--Comment For Now-->
+<!--    <fragment-->
+<!--        android:id="@+id/blankFragment"-->
+<!--        android:name="com.example.handlusernew.BlankFragment"-->
+<!--        android:label="fragment_blank"-->
+<!--        tools:layout="@layout/fragment_blank" >-->
+<!--        <action-->
+<!--            android:id="@+id/navigateToSecond"-->
+<!--            app:destination="@id/secondFragment" />-->
+<!--    </fragment>-->
     <fragment
         android:id="@+id/secondFragment"
         android:name="com.example.handlusernew.SecondFragment"
         android:label="fragment_second"
         tools:layout="@layout/fragment_second" >
-        <action
-            android:id="@+id/NavigateToFirst"
-            app:destination="@id/blankFragment" />
+<!--        <action-->
+<!--            android:id="@+id/NavigateToFirst"-->
+<!--            app:destination="@id/blankFragment" />-->
         <action
             android:id="@+id/action_secondFragment_to_loginFragment"
             app:destination="@id/loginFragment" />

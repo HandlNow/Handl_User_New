@@ -16,13 +16,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.fragment.app.Fragment
-import com.example.handlusernew.databinding.FragmentBlankBinding
 import com.example.handlusernew.databinding.FragmentMainScreenBinding
 import kotlinx.coroutines.launch
 
@@ -42,7 +40,7 @@ class MainScreenFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
-    private var _binding: FragmentMainScreenBinding?=null
+    private var _binding: FragmentMainScreenBinding? = null
 
     private val binding get() = _binding!!
 
@@ -60,11 +58,11 @@ class MainScreenFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view =  inflater.inflate(R.layout.fragment_main_screen, container, false)
+        val view = inflater.inflate(R.layout.fragment_main_screen, container, false)
 
         _binding = FragmentMainScreenBinding.bind(view)
 
-       // _binding
+        // _binding
 
 //        topAppBar.setNavigationOnClickListener {
 //            drawerLayout.open()
@@ -78,18 +76,36 @@ class MainScreenFragment : Fragment() {
 //        }
 
         // Inflate the layout for this fragment
-        return ComposeView(requireContext()).apply {
-            setContent {
-               MainContentDisplay()
-            }
-        }
+        return view
 
-       /// return view
+//        ComposeView(requireContext()).apply {
+//            setContent {
+//                MainContentDisplay()
+//            }
+//        }
+
+        /// return view
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.top_app_bar_menu,menu)
+        inflater.inflate(R.menu.top_app_bar_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.notiIV -> {
+
+            }
+            R.id.menuIV -> {
+
+//                GlobalScope.launch(MonotonicFrameClock()) {
+//                    scaffoldState?.drawerState?.open()
+//                }
+
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     companion object {
@@ -112,19 +128,20 @@ class MainScreenFragment : Fragment() {
             }
     }
 
+    private var scaffoldState: ScaffoldState? = null
 
     @Composable
-    fun MainContentDisplay(){
+    fun MainContentDisplay() {
         val result = remember { mutableStateOf("") }
         val selectedItem = remember { mutableStateOf("favorite") }
         val fabShape = RoundedCornerShape(50)
-        val scaffoldState = rememberScaffoldState(
+        scaffoldState = rememberScaffoldState(
             rememberDrawerState(DrawerValue.Closed)
         )
         val scope = rememberCoroutineScope()
 
         Scaffold(
-            scaffoldState = scaffoldState,
+            scaffoldState = scaffoldState!!,
 
             drawerContent = {
                 Column(
@@ -152,7 +169,7 @@ class MainScreenFragment : Fragment() {
                         Row(modifier = Modifier
                             .clickable {
                                 scope.launch {
-                                    scaffoldState.drawerState.close()
+                                    scaffoldState?.drawerState?.close()
                                     result.value = "Refresh clicked"
                                 }
                             }
@@ -171,7 +188,7 @@ class MainScreenFragment : Fragment() {
                         Row(modifier = Modifier
                             .clickable {
                                 scope.launch {
-                                    scaffoldState.drawerState.close()
+                                    scaffoldState?.drawerState?.close()
                                     result.value = "Cloud upload clicked"
                                 }
                             }
@@ -190,7 +207,7 @@ class MainScreenFragment : Fragment() {
                         Row(modifier = Modifier
                             .clickable {
                                 scope.launch {
-                                    scaffoldState.drawerState.close()
+                                    scaffoldState?.drawerState?.close()
                                     result.value = "Search clicked"
                                 }
                             }
@@ -220,7 +237,7 @@ class MainScreenFragment : Fragment() {
                         IconButton(
                             onClick = {
                                 scope.launch {
-                                    scaffoldState.drawerState.open()
+                                    scaffoldState?.drawerState?.open()
                                 }
                             }
                         ) {
