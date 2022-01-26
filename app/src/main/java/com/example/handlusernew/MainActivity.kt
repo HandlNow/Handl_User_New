@@ -51,9 +51,10 @@ class MainActivity : AppCompatActivity(), DrawerStateInterface {
                 .setNeutralButton(resources.getString(R.string.cancel)) { dialog, which ->
                     // Respond to neutral button press
                     setContentView(binding.root)
+                    setSupportActionBar(binding.toolBar)
                     actionBarDrawerToggle = ActionBarDrawerToggle(
                         this@MainActivity,
-                        binding.drawerLayout,
+                        binding.drawerLayout,binding.toolBar,
                         R.string.app_name,
                         R.string.app_name
                     )
@@ -64,9 +65,10 @@ class MainActivity : AppCompatActivity(), DrawerStateInterface {
                 .setNegativeButton(resources.getString(R.string.decline)) { dialog, which ->
                     // Respond to negative button press
                     setContentView(binding.root)
+                    setSupportActionBar(binding.toolBar)
                     actionBarDrawerToggle = ActionBarDrawerToggle(
                         this@MainActivity,
-                        binding.drawerLayout,
+                        binding.drawerLayout,binding.toolBar,
                         R.string.app_name,
                         R.string.app_name
                     )
@@ -76,9 +78,10 @@ class MainActivity : AppCompatActivity(), DrawerStateInterface {
                 .setPositiveButton(resources.getString(R.string.enter_emial_id)) { dialog, which ->
 
                     setContentView(binding.root)
+                    setSupportActionBar(binding.toolBar)
                     actionBarDrawerToggle = ActionBarDrawerToggle(
                         this@MainActivity,
-                        binding.drawerLayout,
+                        binding.drawerLayout,binding.toolBar,
                         R.string.app_name,
                         R.string.app_name
                     )

@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.HandlUserNew" parent="Theme.MaterialComponents.Light.DarkActionBar">
+    <style name="Theme.HandlUserNew" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="android:windowSplashScreenAnimationDuration" tools:targetApi="s">2000</item>
         <item name="android:windowSplashScreenBackground" tools:targetApi="s">@color/White</item>
