@@ -1,8 +1,10 @@
 package com.example.handlusernew
 
+
 import android.content.Context
 import android.os.Bundle
 import androidx.activity.compose.setContent
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Divider
@@ -21,7 +23,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 class MainActivity : AppCompatActivity(), DrawerStateInterface {
 
     lateinit var binding: ActivityMainBinding
-
+    var actionBarDrawerToggle: ActionBarDrawerToggle? = null
     @Preview
     @Composable
     fun ComposablePreview() {
@@ -49,20 +51,38 @@ class MainActivity : AppCompatActivity(), DrawerStateInterface {
                 .setNeutralButton(resources.getString(R.string.cancel)) { dialog, which ->
                     // Respond to neutral button press
                     setContentView(binding.root)
-                        
+                    actionBarDrawerToggle = ActionBarDrawerToggle(
+                        this@MainActivity,
+                        binding.drawerLayout,
+                        R.string.app_name,
+                        R.string.app_name
+                    )
+                    binding.drawerLayout.setDrawerListener(actionBarDrawerToggle)
 //                    this@MainActivity.supportActionBar?.setDr
 
                 }
                 .setNegativeButton(resources.getString(R.string.decline)) { dialog, which ->
                     // Respond to negative button press
                     setContentView(binding.root)
-
+                    actionBarDrawerToggle = ActionBarDrawerToggle(
+                        this@MainActivity,
+                        binding.drawerLayout,
+                        R.string.app_name,
+                        R.string.app_name
+                    )
+                    binding.drawerLayout.setDrawerListener(actionBarDrawerToggle)
 
                 }
                 .setPositiveButton(resources.getString(R.string.enter_emial_id)) { dialog, which ->
 
                     setContentView(binding.root)
-
+                    actionBarDrawerToggle = ActionBarDrawerToggle(
+                        this@MainActivity,
+                        binding.drawerLayout,
+                        R.string.app_name,
+                        R.string.app_name
+                    )
+                    binding.drawerLayout.setDrawerListener(actionBarDrawerToggle)
 
                     // Respond to positive button press
                 }
