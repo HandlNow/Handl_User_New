@@ -49,16 +49,20 @@ class MainActivity : AppCompatActivity(), DrawerStateInterface {
                 .setNeutralButton(resources.getString(R.string.cancel)) { dialog, which ->
                     // Respond to neutral button press
                     setContentView(binding.root)
+                        
+//                    this@MainActivity.supportActionBar?.setDr
 
                 }
                 .setNegativeButton(resources.getString(R.string.decline)) { dialog, which ->
                     // Respond to negative button press
                     setContentView(binding.root)
 
+
                 }
                 .setPositiveButton(resources.getString(R.string.enter_emial_id)) { dialog, which ->
 
                     setContentView(binding.root)
+
 
                     // Respond to positive button press
                 }
