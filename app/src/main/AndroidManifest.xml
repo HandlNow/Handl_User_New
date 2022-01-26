@@ -34,7 +34,7 @@
         android:icon="@mipmap/ic_launcher_foreground12"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppSplash">
+        android:theme="@style/Theme.HandlUserNew">
 
         <activity
             android:name=".MainActivity"
