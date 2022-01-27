@@ -92,7 +92,11 @@
         android:layout_height="match_parent"
         android:layout_gravity="end"
         android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_main"
-        app:menu="@menu/drawer_menu" />
+        >
+        <include
+            android:id="@+id/sideMenuNav"
+            layout="@layout/side_menu"
+            />
+    </com.google.android.material.navigation.NavigationView>
 
 </androidx.drawerlayout.widget.DrawerLayout>

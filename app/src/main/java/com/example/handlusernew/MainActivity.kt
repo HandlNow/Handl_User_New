@@ -4,6 +4,7 @@ package com.example.handlusernew
 import android.content.Context
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.padding
@@ -15,6 +16,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.view.GravityCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.handlusernew.adapter.SideMenuAdapter
+import com.example.handlusernew.adapter.SideMenuModel
 import com.example.handlusernew.databinding.ActivityMainBinding
 
 
@@ -51,6 +56,7 @@ class MainActivity : AppCompatActivity(), DrawerStateInterface {
         binding.rlDropDown.setOnClickListener {
             openMenuListener?.openMenu(it)
         }
+        setNavData()
 //        setContent {
 //            //   SimpleComposable(this)
 //
@@ -98,6 +104,23 @@ class MainActivity : AppCompatActivity(), DrawerStateInterface {
 //        }
 
 
+    }
+
+    private fun setNavData() {
+        val arraySideMenu = ArrayList<SideMenuModel>()
+        arraySideMenu.clear()
+        arraySideMenu.add(SideMenuModel("My Details" , R.drawable.detailed_icon))
+        arraySideMenu.add(SideMenuModel("Messages" , R.drawable.message_icon))
+        arraySideMenu.add(SideMenuModel("Appointments" , R.drawable.appointment_icon))
+        arraySideMenu.add(SideMenuModel("My Calender" , R.drawable.calender_icon))
+        arraySideMenu.add(SideMenuModel("Help" , R.drawable.help_icon))
+        arraySideMenu.add(SideMenuModel("Promos" , R.drawable.promos_icon))
+        arraySideMenu.add(SideMenuModel("Legal" , R.drawable.legal_icon))
+        arraySideMenu.add(SideMenuModel("Logout" , R.drawable.logout_icon))
+        binding.sideMenuNav.sideRecycler.layoutManager = LinearLayoutManager(this , RecyclerView.VERTICAL , false)
+        val adapter = SideMenuAdapter(this , arraySideMenu){
+        }
+        binding.sideMenuNav.sideRecycler.adapter = adapter
     }
 
     override fun openDrawer(direction: Int) {
