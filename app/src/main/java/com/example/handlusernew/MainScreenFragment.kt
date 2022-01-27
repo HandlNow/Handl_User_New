@@ -102,7 +102,7 @@ class MainScreenFragment : Fragment() {
                     val popup = PopupMenu(requireActivity(), view)
 //                    popup.menuInflater.inflate(R.menu.location_selection, popup.menu)
                     popup.menuInflater.inflate(R.menu.location_selection, popup.menu)
-                    
+
                     popup.setOnMenuItemClickListener(object : PopupMenu.OnMenuItemClickListener {
                         override fun onMenuItemClick(item: MenuItem?): Boolean {
                             if (item?.itemId == R.id.ivAddNewAddress) {
