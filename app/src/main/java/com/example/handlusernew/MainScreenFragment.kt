@@ -97,6 +97,7 @@ class MainScreenFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setRecycler()
         if (requireActivity() is MainActivity) {
+                //Drop down for addition of address
             (requireActivity() as MainActivity).openMenuListener = object : OpenThePopUpMenu {
                 override fun openMenu(view: View) {
                     val popup = PopupMenu(requireActivity(), view)
@@ -125,6 +126,7 @@ class MainScreenFragment : Fragment() {
         }
     }
 
+    //To get and set categories and sub categories data
     private fun setRecycler() {
         val array: ArrayList<ItemDetailModel> = ArrayList()
         array.add(ItemDetailModel("House cleaning", R.drawable.bg_gradient))

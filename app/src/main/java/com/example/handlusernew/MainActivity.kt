@@ -46,6 +46,7 @@ class MainActivity : AppCompatActivity(), DrawerStateInterface {
         setContentView(binding.root)
         setSupportActionBar(binding.toolBar)
         supportActionBar?.title = ""
+        //to toggle actionbar
         actionBarDrawerToggle = ActionBarDrawerToggle(
             this@MainActivity,
             binding.drawerLayout, binding.toolBar,
@@ -106,6 +107,7 @@ class MainActivity : AppCompatActivity(), DrawerStateInterface {
 
     }
 
+    //Set side menu navigation data
     private fun setNavData() {
         val arraySideMenu = ArrayList<SideMenuModel>()
         arraySideMenu.clear()
