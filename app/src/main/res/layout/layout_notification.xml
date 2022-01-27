@@ -25,16 +25,19 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/cartIV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
                 android:padding="@dimen/_5sdp"
                 android:src="@mipmap/ic_not" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/countTV"
-                android:layout_width="@dimen/_13sdp"
-                android:layout_height="@dimen/_13sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="end"
+                android:layout_marginEnd="@dimen/_2sdp"
+                android:paddingVertical="@dimen/_1sdp"
+                android:paddingHorizontal="@dimen/_3sdp"
                 android:layout_marginTop="@dimen/_2sdp"
                 android:background="@drawable/background_red"
                 android:fontFamily="@font/lato_regular"

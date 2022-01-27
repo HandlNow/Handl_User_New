@@ -94,6 +94,7 @@
     <string name="update">Update</string>
     <string name="save">Save</string>
     <string name="add_new_home">Add a new address</string>
+    <string name="add_new_home_address">+ add a new address</string>
     <string name="warning_n_ndue_to_the_number_of_rooms_selected_there_is_a_possibility_that_not_all_rooms_will_be_done_within_a_day_so_you_will_need_to_re_book_with_the_same_or_another_provider_for_more_than_one_appointments">WARNING!\n\nDue to the number of rooms selected there is a possibility that not all rooms will be done within a day so you will need to re-book with the same or another provider for more than one appointments.</string>
     <string name="how_many_rooms_do_you_need_painting">How many rooms do you need painting?</string>
     <string name="number_of_rooms">Number of Rooms</string>
@@ -215,7 +216,7 @@
     <string name="house_services">House Services</string>
     <string name="childcare_teaching"><![CDATA[Childcare & Teaching]]></string>
     <string name="personalcare">Personal Care</string>
-    <string name="current_location">Current Location</string>
+<!--    <string name="current_location">Current Location</string>-->
     <string name="select_location">Select Location</string>
     <string name="location">Location</string>
     <string name="task">Task</string>
@@ -434,5 +435,7 @@
     <string name="cancel_alert_message">Your client is expecting you!\nCancelling more than 3 times, 1 hour before your task, might result in deactivating your account!</string>
     <string name="password">Password</string>
     <string name="todo">TODO</string>
+    <string name="current_location">Current Location</string>
+    <string name="my_home">my home</string>
 
 </resources>

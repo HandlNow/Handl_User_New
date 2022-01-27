@@ -2,6 +2,7 @@ package com.example.handlusernew
 
 import android.os.Bundle
 import android.view.*
+import androidx.appcompat.widget.PopupMenu
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -21,6 +22,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.handlusernew.adapter.ItemDetailModel
@@ -48,7 +50,6 @@ class MainScreenFragment : Fragment() {
     private var _binding: FragmentMainScreenBinding? = null
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
@@ -66,7 +67,7 @@ class MainScreenFragment : Fragment() {
 
         _binding = FragmentMainScreenBinding.bind(view)
 
-        setRecycler()
+
         // _binding
 
 //        topAppBar.setNavigationOnClickListener {
@@ -92,23 +93,56 @@ class MainScreenFragment : Fragment() {
         /// return view
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setRecycler()
+        if (requireActivity() is MainActivity) {
+            (requireActivity() as MainActivity).openMenuListener = object : OpenThePopUpMenu {
+                override fun openMenu(view: View) {
+                    val popup = PopupMenu(requireActivity(), view)
+//                    popup.menuInflater.inflate(R.menu.location_selection, popup.menu)
+                    popup.menuInflater.inflate(R.menu.location_selection, popup.menu)
+                    
+                    popup.setOnMenuItemClickListener(object : PopupMenu.OnMenuItemClickListener {
+                        override fun onMenuItemClick(item: MenuItem?): Boolean {
+                            if (item?.itemId == R.id.ivAddNewAddress) {
+                                Navigation.findNavController(_binding!!.root)
+                                    .navigate(R.id.action_mainScreenFragment_to_secondFragment)
+                            }
+                            return true
+                        }
+
+                    })
+                    popup.show() //showing popup menu
+
+                }
+
+                override fun closeMenu(view: View) {
+
+                }
+
+            }
+        }
+    }
+
     private fun setRecycler() {
-        val array : ArrayList<ItemDetailModel> = ArrayList()
-        array.add(ItemDetailModel("House cleaning" , R.drawable.bg_gradient))
-        array.add(ItemDetailModel("Matter, Carpet and sofa cleaning" , R.drawable.bg_gradient))
-        array.add(ItemDetailModel("Wall Painting" , R.drawable.bg_gradient))
-        array.add(ItemDetailModel("Garden Service" , R.drawable.bg_gradient))
+        val array: ArrayList<ItemDetailModel> = ArrayList()
+        array.add(ItemDetailModel("House cleaning", R.drawable.bg_gradient))
+        array.add(ItemDetailModel("Matter, Carpet and sofa cleaning", R.drawable.bg_gradient))
+        array.add(ItemDetailModel("Wall Painting", R.drawable.bg_gradient))
+        array.add(ItemDetailModel("Garden Service", R.drawable.bg_gradient))
 //        array.add(ItemDetailModel("Hey Babe" , R.drawable.bg_gradient))
 //        array.add(ItemDetailModel("Hey Babe" , R.drawable.bg_gradient))
-        val arrayFinal : ArrayList<MainScreenModel> = ArrayList()
+        val arrayFinal: ArrayList<MainScreenModel> = ArrayList()
         arrayFinal.clear()
-        arrayFinal.add(MainScreenModel("Cleaning Service" , array))
-        arrayFinal.add(MainScreenModel("House Service" , array))
-        arrayFinal.add(MainScreenModel("Childcare & Teach" , array))
+        arrayFinal.add(MainScreenModel("Cleaning Service", array))
+        arrayFinal.add(MainScreenModel("House Service", array))
+        arrayFinal.add(MainScreenModel("Childcare & Teach", array))
 //        arrayFinal.add(MainScreenModel("Gays" , array))
 //        arrayFinal.add(MainScreenModel("Afrahs" , array))
-        _binding?.dataRecycler?.layoutManager = LinearLayoutManager(requireContext(),RecyclerView.VERTICAL,false)
-        val adapter  = MainScreenFragmentAdapter(requireContext() , arrayFinal)
+        _binding?.dataRecycler?.layoutManager =
+            LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
+        val adapter = MainScreenFragmentAdapter(requireContext(), arrayFinal)
         _binding?.dataRecycler?.adapter = adapter
 
     }

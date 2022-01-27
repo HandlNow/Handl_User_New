@@ -2,15 +2,28 @@
     <!-- Base application theme. -->
     <style name="Theme.HandlUserNew" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/Purple</item>
+
+        <item name="android:windowSplashScreenAnimationDuration" tools:targetApi="s">2000</item>
+        <item name="android:windowSplashScreenBackground" tools:targetApi="s">@color/White</item>
+        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="s">
+            @mipmap/ic_launcher_foregdround12
+        </item>
+        <item name="windowSplashScreenBackground">@mipmap/ic_launcher_foregdround12</item>
+        <!--            >@color/White</item>-->
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher_foregdround12</item>
+        <item name="windowSplashScreenAnimationDuration">2000</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="postSplashScreenTheme">@style/Theme.AppCompat.DayNight</item>
+        <item name="colorPrimary">@color/White</item>
         <item name="colorPrimaryVariant">@color/Purple</item>
-        <item name="colorOnPrimary">@color/Black</item>
+        <item name="colorOnPrimary">@color/lightBlack</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/Teal</item>
         <item name="colorSecondaryVariant">@color/Teal</item>
-        <item name="colorOnSecondary">@color/Black</item>
+        <item name="colorOnSecondary">@color/White</item>
         <!-- Status bar color. -->
-<!--        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>-->
+        <!--        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>-->
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowActionBarOverlay">true</item>

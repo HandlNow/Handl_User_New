@@ -107,7 +107,7 @@ class SecondFragment : Fragment(), OnMapReadyCallback {
         _binding?.shareTV?.setOnClickListener {
             Log.d("hello", "world !!")
             Navigation.findNavController(view)
-                .navigate(com.example.handlusernew.R.id.action_secondFragment_to_loginFragment)
+                .navigate(R.id.action_secondFragment_to_loginFragment)
         }
 
 

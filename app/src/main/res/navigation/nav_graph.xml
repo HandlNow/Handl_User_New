@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/secondFragment">
+    app:startDestination="@id/mainScreenFragment">
 <!--Comment For Now-->
 <!--    <fragment-->
 <!--        android:id="@+id/blankFragment"-->
@@ -24,7 +24,7 @@
 <!--            app:destination="@id/blankFragment" />-->
         <action
             android:id="@+id/action_secondFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/mainScreenFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -46,5 +46,8 @@
         <action
             android:id="@+id/action_mainScreenFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_mainScreenFragment_to_secondFragment"
+            app:destination="@id/secondFragment" />
     </fragment>
 </navigation>

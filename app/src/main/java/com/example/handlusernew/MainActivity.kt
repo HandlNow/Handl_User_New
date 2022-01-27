@@ -3,7 +3,7 @@ package com.example.handlusernew
 
 import android.content.Context
 import android.os.Bundle
-import androidx.activity.compose.setContent
+import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.padding
@@ -14,16 +14,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.GravityCompat
 import com.example.handlusernew.databinding.ActivityMainBinding
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 
 class MainActivity : AppCompatActivity(), DrawerStateInterface {
 
     lateinit var binding: ActivityMainBinding
     var actionBarDrawerToggle: ActionBarDrawerToggle? = null
+    var openMenuListener:OpenThePopUpMenu? = null
     @Preview
     @Composable
     fun ComposablePreview() {
@@ -33,65 +32,70 @@ class MainActivity : AppCompatActivity(), DrawerStateInterface {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        installSplashScreen()
+//        installSplashScreen()
 
         binding = ActivityMainBinding.inflate(layoutInflater)
 //        binding.drawerLayout?.openDrawer()
 //        setTheme(R.style.Theme_HandlUserNew)
         //
-        setContent {
-            //   SimpleComposable(this)
-
-            // Hide the status bar.
-
-
-            MaterialAlertDialogBuilder(this)
-                .setTitle(resources.getString(R.string.booking))
-                .setMessage(resources.getString(R.string.email_id))
-                .setNeutralButton(resources.getString(R.string.cancel)) { dialog, which ->
-                    // Respond to neutral button press
-                    setContentView(binding.root)
-                    setSupportActionBar(binding.toolBar)
-                    actionBarDrawerToggle = ActionBarDrawerToggle(
-                        this@MainActivity,
-                        binding.drawerLayout,binding.toolBar,
-                        R.string.app_name,
-                        R.string.app_name
-                    )
-                    binding.drawerLayout.setDrawerListener(actionBarDrawerToggle)
-//                    this@MainActivity.supportActionBar?.setDr
-
-                }
-                .setNegativeButton(resources.getString(R.string.decline)) { dialog, which ->
-                    // Respond to negative button press
-                    setContentView(binding.root)
-                    setSupportActionBar(binding.toolBar)
-                    actionBarDrawerToggle = ActionBarDrawerToggle(
-                        this@MainActivity,
-                        binding.drawerLayout,binding.toolBar,
-                        R.string.app_name,
-                        R.string.app_name
-                    )
-                    binding.drawerLayout.setDrawerListener(actionBarDrawerToggle)
-
-                }
-                .setPositiveButton(resources.getString(R.string.enter_emial_id)) { dialog, which ->
-
-                    setContentView(binding.root)
-                    setSupportActionBar(binding.toolBar)
-                    actionBarDrawerToggle = ActionBarDrawerToggle(
-                        this@MainActivity,
-                        binding.drawerLayout,binding.toolBar,
-                        R.string.app_name,
-                        R.string.app_name
-                    )
-                    binding.drawerLayout.setDrawerListener(actionBarDrawerToggle)
-
-                    // Respond to positive button press
-                }
-                .show()
-
+        setContentView(binding.root)
+        setSupportActionBar(binding.toolBar)
+        supportActionBar?.title = ""
+        actionBarDrawerToggle = ActionBarDrawerToggle(
+            this@MainActivity,
+            binding.drawerLayout, binding.toolBar,
+            0,
+            0
+        )
+        binding.drawerLayout.addDrawerListener(actionBarDrawerToggle!!)
+        binding.rlDropDown.setOnClickListener {
+            openMenuListener?.openMenu(it)
         }
+//        setContent {
+//            //   SimpleComposable(this)
+//
+//            // Hide the status bar.
+//
+//
+//            MaterialAlertDialogBuilder(this)
+//                .setTitle(resources.getString(R.string.booking))
+//                .setMessage(resources.getString(R.string.email_id))
+//                .setNeutralButton(resources.getString(R.string.cancel)) { dialog, which ->
+//                    // Respond to neutral button press
+//
+////                    this@MainActivity.supportActionBar?.setDr
+//
+//                }
+//                .setNegativeButton(resources.getString(R.string.decline)) { dialog, which ->
+//                    // Respond to negative button press
+//                    setContentView(binding.root)
+//                    setSupportActionBar(binding.toolBar)
+//                    actionBarDrawerToggle = ActionBarDrawerToggle(
+//                        this@MainActivity,
+//                        binding.drawerLayout,binding.toolBar,
+//                        R.string.app_name,
+//                        R.string.app_name
+//                    )
+//                    binding.drawerLayout.setDrawerListener(actionBarDrawerToggle)
+//
+//                }
+//                .setPositiveButton(resources.getString(R.string.enter_emial_id)) { dialog, which ->
+//
+//                    setContentView(binding.root)
+//                    setSupportActionBar(binding.toolBar)
+//                    actionBarDrawerToggle = ActionBarDrawerToggle(
+//                        this@MainActivity,
+//                        binding.drawerLayout,binding.toolBar,
+//                        R.string.app_name,
+//                        R.string.app_name
+//                    )
+//                    binding.drawerLayout.setDrawerListener(actionBarDrawerToggle)
+//
+//                    // Respond to positive button press
+//                }
+//                .show()
+//
+//        }
 
 
     }
@@ -133,5 +137,10 @@ interface DrawerStateInterface {
     fun openDrawer(direction: Int = GravityCompat.END)
     fun closeDrawer(direction: Int = GravityCompat.START)
 
+}
+
+interface OpenThePopUpMenu {
+    fun openMenu(view: View)
+    fun closeMenu(view: View)
 }
 
