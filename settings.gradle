@@ -8,3 +8,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Handl User New"
 include ':app'
+include ':android-networking'
+

@@ -63,6 +63,9 @@ dependencies {
     implementation("androidx.drawerlayout:drawerlayout:1.1.1")
 
 
+    //Networking Module
+    api project(path: ':android-networking')
+
 
 
     implementation 'com.intuit.ssp:ssp-android:1.0.6'
