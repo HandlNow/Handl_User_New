@@ -149,7 +149,6 @@ class CheckLocationFragment : Fragment(), OnMapReadyCallback {
     @SuppressLint("MissingPermission")
     override fun onMapReady(p0: GoogleMap) {
 
-
         googleMap = p0 // assign to global google map object when the p0 is ready
 
         googleMap!!.setOnCameraMoveListener {
@@ -157,7 +156,6 @@ class CheckLocationFragment : Fragment(), OnMapReadyCallback {
         }
 
         tryGetLocation()
-
 
 
     }
@@ -283,6 +281,7 @@ class CheckLocationFragment : Fragment(), OnMapReadyCallback {
                         geocoder?.getFromLocation(myLocation!!.latitude, myLocation!!.longitude, 1)
 
 
+                    // display the current city and country
                     if (adressList != null && adressList.count() > 0) {
                         val locality: String = adressList.get(0).getLocality()
                         val country: String = adressList.get(0).countryName
