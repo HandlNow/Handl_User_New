@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.handlusernew.R
-import com.example.handlusernew.adapter.dto.CategoryModelDTOItem
+import com.example.handlusernew.dto.CategoryModelDTOItem
 import com.example.handlusernew.databinding.MainScreenItemBinding
 
 class MainScreenFragmentAdapter(

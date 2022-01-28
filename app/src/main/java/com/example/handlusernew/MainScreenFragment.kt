@@ -1,6 +1,5 @@
 package com.example.handlusernew
 
-import android.app.ProgressDialog
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -28,7 +27,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.handlusernew.adapter.MainScreenFragmentAdapter
-import com.example.handlusernew.adapter.dto.CategoryModelDTOItem
+import com.example.handlusernew.dto.CategoryModelDTOItem
 import com.example.handlusernew.databinding.FragmentMainScreenBinding
 import com.example.handlusernew.network.NetworkClass
 import com.example.handlusernew.network.Response

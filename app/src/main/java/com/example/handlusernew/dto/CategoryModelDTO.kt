@@ -1,3 +1,3 @@
-package com.example.handlusernew.adapter.dto
+package com.example.handlusernew.dto
 
 class CategoryModelDTO : ArrayList<CategoryModelDTOItem>()
