@@ -7,11 +7,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.handlusernew.R
+import com.example.handlusernew.adapter.dto.CategoryModelDTOItem
 import com.example.handlusernew.databinding.MainScreenItemBinding
 
 class MainScreenFragmentAdapter(
     private var context: Context,
-    private var mData: ArrayList<MainScreenModel>
+    private var mData: ArrayList<CategoryModelDTOItem>
 ) :
     RecyclerView.Adapter<MainScreenVH>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainScreenVH {
@@ -26,7 +27,7 @@ class MainScreenFragmentAdapter(
 
         holder.binding.detailRecycle.layoutManager =
             LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
-        val adapter = MainScreenItemDetailAdapter(context, item.itemDetailArray ?: ArrayList())
+        val adapter = MainScreenItemDetailAdapter(context, item.subcategory)
         holder.binding.detailRecycle.adapter = adapter
 
     }
@@ -39,13 +40,3 @@ class MainScreenFragmentAdapter(
 class MainScreenVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
     var binding: MainScreenItemBinding = MainScreenItemBinding.bind(itemView)
 }
-
-class MainScreenModel(
-    var title: String? = "",
-    var itemDetailArray: ArrayList<ItemDetailModel>? = ArrayList()
-)
-
-class ItemDetailModel(
-    var title: String? = "",
-    var imageDrawable: Int? = 0
-)

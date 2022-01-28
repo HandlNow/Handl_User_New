@@ -17,11 +17,11 @@ class NetworkClass {
     private var callBack: Response? = null
 
     private fun handleResponse(response: JSONObject) {
-        val status: Boolean = response.optBoolean("status", false)
+        val status: Int = response.optInt("status")
         val message: String = response.optString("message", "") ?: ""
         val result: Any = if (response.has("data")) response.get("data") else ""
         if (callBack != null) {
-            if (status) {
+            if (status == 200) {
                 if (result is String && result == "Invalid User Token") {
                     Log.w(TAG, MessageFormat.format("APICall{0}", response))
                     callBack?.onErrorResponse("Invalid User Token")

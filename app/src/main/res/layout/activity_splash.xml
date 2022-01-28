@@ -1,22 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?><!--
-  ~ @copyright : ToXSL Technologies Pvt. Ltd. < www.toxsl.com >
-  ~ @author     : Shiv Charan Panjeta < shiv@toxsl.com >
-  ~ All Rights Reserved.
-  ~ Proprietary and confidential :  All information contained herein is, and remains
-  ~ the property of ToXSL Technologies Pvt. Ltd. and its partners.
-  ~ Unauthorized copying of this file, via any medium is strictly prohibited.
-  -->
+<?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/ic_spppppp"
+    android:background="@drawable/splash_icon"
     android:orientation="vertical">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/ic_log" />
+        android:layout_height="wrap_content"/>
 
 </RelativeLayout>

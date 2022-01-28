@@ -43,6 +43,8 @@
     <style name="Theme.HandlUserNew.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.HandlUserNew.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
+    <style name="MyAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/colorPrimary</item>
+    </style>
 
 </resources>

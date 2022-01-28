@@ -74,9 +74,9 @@ open class BaseApplication : Application(), LifecycleObserver {
         val okHttpClient = OkHttpClient()
             .newBuilder()
             .protocols(Arrays.asList(Protocol.HTTP_1_1))
-            .connectTimeout(120, TimeUnit.SECONDS)
-            .readTimeout(120, TimeUnit.SECONDS)
-            .writeTimeout(120, TimeUnit.SECONDS)
+            .connectTimeout(12000, TimeUnit.SECONDS)
+            .readTimeout(12000, TimeUnit.SECONDS)
+            .writeTimeout(12000, TimeUnit.SECONDS)
         AndroidNetworking.initialize(this, okHttpClient.build())
 
     }

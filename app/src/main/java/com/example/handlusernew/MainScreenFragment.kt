@@ -1,6 +1,8 @@
 package com.example.handlusernew
 
+import android.app.ProgressDialog
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.appcompat.widget.PopupMenu
 import androidx.compose.foundation.clickable
@@ -25,10 +27,13 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.handlusernew.adapter.ItemDetailModel
 import com.example.handlusernew.adapter.MainScreenFragmentAdapter
-import com.example.handlusernew.adapter.MainScreenModel
+import com.example.handlusernew.adapter.dto.CategoryModelDTOItem
 import com.example.handlusernew.databinding.FragmentMainScreenBinding
+import com.example.handlusernew.network.NetworkClass
+import com.example.handlusernew.network.Response
+import com.example.handlusernew.network.URLApi
+import com.google.gson.Gson
 import kotlinx.coroutines.launch
 
 
@@ -47,8 +52,10 @@ class MainScreenFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private var mCategoryList : ArrayList<CategoryModelDTOItem> ?= ArrayList()
     private var _binding: FragmentMainScreenBinding? = null
 
+    private var adapter : MainScreenFragmentAdapter ?= null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -92,10 +99,43 @@ class MainScreenFragment : Fragment() {
 
         /// return view
     }
+    //get Category data
+    private fun getCatogies() {
+
+        if (_binding?.swipe?.isRefreshing == false){
+            _binding?.swipe?.isRefreshing = true
+        }
+        NetworkClass.callApi(URLApi.getCategory() , object :Response{
+            override fun onSuccessResponse(response: String?, message: String) {
+                _binding?.swipe?.isRefreshing = false
+
+                val array  = generateList(response = response.toString() , Array<CategoryModelDTOItem>::class.java)
+                mCategoryList?.clear()
+                mCategoryList?.addAll(array)
+                adapter?.notifyDataSetChanged()
+
+
+
+
+            }
+
+            override fun onErrorResponse(error: String?, response: String?) {
+                _binding?.swipe?.isRefreshing = false
+
+                Log.d("getError", "onErrorResponse:  " + error?: "")
+            }
+        })
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setRecycler()
+        _binding?.swipe?.setOnRefreshListener {
+            getCatogies()
+
+        }
+        getCatogies()
+
         if (requireActivity() is MainActivity) {
                 //Drop down for addition of address
             (requireActivity() as MainActivity).openMenuListener = object : OpenThePopUpMenu {
@@ -126,25 +166,11 @@ class MainScreenFragment : Fragment() {
         }
     }
 
-    //To get and set categories and sub categories data
+    //set Category Recycler
     private fun setRecycler() {
-        val array: ArrayList<ItemDetailModel> = ArrayList()
-        array.add(ItemDetailModel("House cleaning", R.drawable.bg_gradient))
-        array.add(ItemDetailModel("Matter, Carpet and sofa cleaning", R.drawable.bg_gradient))
-        array.add(ItemDetailModel("Wall Painting", R.drawable.bg_gradient))
-        array.add(ItemDetailModel("Garden Service", R.drawable.bg_gradient))
-//        array.add(ItemDetailModel("Hey Babe" , R.drawable.bg_gradient))
-//        array.add(ItemDetailModel("Hey Babe" , R.drawable.bg_gradient))
-        val arrayFinal: ArrayList<MainScreenModel> = ArrayList()
-        arrayFinal.clear()
-        arrayFinal.add(MainScreenModel("Cleaning Service", array))
-        arrayFinal.add(MainScreenModel("House Service", array))
-        arrayFinal.add(MainScreenModel("Childcare & Teach", array))
-//        arrayFinal.add(MainScreenModel("Gays" , array))
-//        arrayFinal.add(MainScreenModel("Afrahs" , array))
         _binding?.dataRecycler?.layoutManager =
             LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
-        val adapter = MainScreenFragmentAdapter(requireContext(), arrayFinal)
+         adapter = MainScreenFragmentAdapter(requireContext(), mCategoryList?: ArrayList())
         _binding?.dataRecycler?.adapter = adapter
 
     }
@@ -373,6 +399,14 @@ class MainScreenFragment : Fragment() {
 //                )
 //            }
         )
+    }
+    fun <T> generateList(response: String, type: Class<Array<T>>): ArrayList<T> {
+        val arrayList = ArrayList<T>()
+        if (response.isEmpty() || response == "null" || response == "\"[]\"") {
+            return arrayList
+        }
+        arrayList.addAll(listOf(*Gson().fromJson(response, type)))
+        return arrayList
     }
 
 }
