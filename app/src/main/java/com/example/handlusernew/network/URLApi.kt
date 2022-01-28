@@ -17,9 +17,8 @@ object URLApi {
     private val TAG = URLApi::class.java.toString()
 
     const val SOCKET_URL = "http://45.56.122.34:1028"
-    public const val BaseUrl =
-
-        "https://www.handlnow.com/handl-laravel/api/" //Base URL here
+    public const val BaseUrl = "https://www.handlnow.com/handl-laravel/api/" //Base URL here
+    const val BaseImageLink = "http://45.56.122.34/"
     private var path: String = ""
     private var params: JSONObject = JSONObject()
     var method: NetworkMethod = NetworkMethod.GET

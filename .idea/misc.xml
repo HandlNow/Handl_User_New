@@ -61,7 +61,8 @@
         <entry key="app/src/main/res/drawable/custom_progress_dialog.xml" value="0.1925925925925926" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.1671195652173913" />
-        <entry key="app/src/main/res/layout/fragment_main_screen.xml" value="0.16" />
+        <entry key="app/src/main/res/layout/fragment_main_screen.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_second.xml" value="0.25416666666666665" />
         <entry key="app/src/main/res/layout/main_screen_detail_item.xml" value="0.22" />
         <entry key="app/src/main/res/layout/main_screen_item.xml" value="0.28397674560546876" />
         <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.25416666666666665" />

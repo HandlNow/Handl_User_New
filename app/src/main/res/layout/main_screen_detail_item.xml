@@ -20,11 +20,12 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/_155sdp"
+                android:layout_height="@dimen/_155sdp"
                 android:minWidth="@dimen/_155sdp"
                 android:minHeight="@dimen/_155sdp"
-                android:scaleType="centerCrop" />
+                android:scaleType="centerCrop"
+                android:src="@drawable/splash_icon" />
         </androidx.cardview.widget.CardView>
 
         <androidx.appcompat.widget.AppCompatTextView
