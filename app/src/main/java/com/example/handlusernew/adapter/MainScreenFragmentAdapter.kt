@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.handlusernew.R
-import com.example.handlusernew.dto.CategoryModelDTOItem
 import com.example.handlusernew.databinding.MainScreenItemBinding
+import com.example.handlusernew.dto.CategoryModelDTOItem
 
 class MainScreenFragmentAdapter(
     private var context: Context,
@@ -23,11 +23,11 @@ class MainScreenFragmentAdapter(
 
     override fun onBindViewHolder(holder: MainScreenVH, position: Int) {
         val item = mData[position]
-        holder.binding.title.text = item.title
+        holder.binding.title.text = item.category?.title
 
         holder.binding.detailRecycle.layoutManager =
             LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
-        val adapter = MainScreenItemDetailAdapter(context, item.subcategory)
+        val adapter = MainScreenItemDetailAdapter(context, item.subcategory ?: ArrayList())
         holder.binding.detailRecycle.adapter = adapter
 
     }
