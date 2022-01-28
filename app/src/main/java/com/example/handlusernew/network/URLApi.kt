@@ -18,7 +18,7 @@ object URLApi {
 
     const val SOCKET_URL = "http://45.56.122.34:1028"
     public const val BaseUrl = "https://www.handlnow.com/handl-laravel/api/" //Base URL here
-    const val BaseImageLink = "http://45.56.122.34/"
+    const val BaseImageLink = "https://www.handlnow.com/handl-laravel/"
     private var path: String = ""
     private var params: JSONObject = JSONObject()
     var method: NetworkMethod = NetworkMethod.GET
@@ -44,7 +44,7 @@ object URLApi {
 
 
     fun getCategory(): URLApi {
-        method = NetworkMethod.POST
+        method = NetworkMethod.GET
         path = "category"
         params = JSONObject()
         return this
