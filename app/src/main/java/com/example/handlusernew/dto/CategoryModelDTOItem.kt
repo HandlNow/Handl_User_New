@@ -5,7 +5,7 @@ import java.io.Serializable
 data class CategoryModelDTOItem(
 
     val subcategory: ArrayList<Subcategory>? = ArrayList(),
-    val category: Subcategory? = null
+    val catgorey: Subcategory? = null
 
 ):Serializable
 //val title: String?="",

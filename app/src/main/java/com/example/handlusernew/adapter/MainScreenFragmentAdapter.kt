@@ -23,7 +23,7 @@ class MainScreenFragmentAdapter(
 
     override fun onBindViewHolder(holder: MainScreenVH, position: Int) {
         val item = mData[position]
-        holder.binding.title.text = item.category?.title
+        holder.binding.title.text = item.catgorey?.title
 
         holder.binding.detailRecycle.layoutManager =
             LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
