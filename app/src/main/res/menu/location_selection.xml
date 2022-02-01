@@ -1,5 +1,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
 
     <item
@@ -11,7 +12,8 @@
     <item
         android:id="@+id/ivAddNewAddress"
         android:iconTint="@color/Teal"
-        android:title="@string/add_new_home_address" />
+        android:title="@string/add_new_home_address"
+        tools:targetApi="o" />
 
 
 </menu>

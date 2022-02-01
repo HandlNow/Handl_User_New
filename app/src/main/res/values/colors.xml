@@ -40,10 +40,12 @@
     <color name="text_hint_color">#c3c3c3</color>
 
     <color name="lightBlack">#ff323232</color>
+    <color name="lightBlackAlpha">#80323232</color>
     <color name="drawer_bg">#070D15</color>
     <color name="Gray_divider">#141921</color>
     <color name="transparent">#00000000</color>
     <color name="White">#FFFFFF</color>
+    <color name="WhiteAlpha">#80FFFFFF</color>
     <color name="Ivory">#FFFFF0</color>
     <color name="LightYellow">#FFFFE0</color>
     <color name="Yellow">#FFFF00</color>

@@ -18,12 +18,12 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 30//rootProject.ext.compileSdkVersion
-    buildToolsVersion "30.0.3"//rootProject.ext.buildToolsVersion
+    compileSdkVersion 32//rootProject.ext.compileSdkVersion
+//    buildToolsVersion "30.0.3"//rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion 23//rootProject.ext.minSdkVersion
-        targetSdkVersion 30//rootProject.ext.targetSdkVersion
+        minSdkVersion 24//rootProject.ext.minSdkVersion
+        targetSdkVersion 32//rootProject.ext.targetSdkVersion
         consumerProguardFiles 'proguard-rules.pro'
     }
     buildTypes {
@@ -41,8 +41,8 @@ dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
 //    testImplementation "junit:junit:$rootProject.ext.jUnitVersion"
 //    androidTestImplementation "com.squareup.okhttp3:mockwebserver:$rootProject.ext.mockWebServerVersion"
-    api 'com.squareup.okhttp3:okhttp:5.0.0-alpha.2'//$rootProject.ext.okHttp3Version
-    api "com.google.code.gson:gson:2.8.7"//
-    api 'androidx.appcompat:appcompat:1.3.0'
+    api 'com.squareup.okhttp3:okhttp:5.0.0-alpha.3'//$rootProject.ext.okHttp3Version
+    api "com.google.code.gson:gson:2.8.9"//
+    api 'androidx.appcompat:appcompat:1.4.1'
 }
 

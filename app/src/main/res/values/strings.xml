@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Handl User New</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank</string>
     <string name="title_activity_main">Area</string>
     <!-- Strings used for fragments for navigation -->
@@ -440,5 +439,7 @@
     <string name="my_home">my home</string>
     <string name="rating_text">0.00</string>
     <string name="userName">George Devids</string>
+    <string name="network_error">Network Error</string>
+    <string name="temp_address">Grigori Afxentiou</string>
 
 </resources>

@@ -6,10 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".MainActivity"
+    tools:context=".activities.MainActivity">
 
-    >
-    <!--tools:openDrawer="end"-->
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -57,7 +55,7 @@
                         android:layout_height="wrap_content"
                         android:drawableEnd="@drawable/ic_down_arrow"
                         android:drawableTint="@color/Teal"
-                        android:text="Grigori Afxentiou"
+                        android:text="@string/temp_address"
                         android:textSize="@dimen/_12sdp"
                         android:textStyle="bold" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
@@ -91,12 +89,11 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="end"
-        android:fitsSystemWindows="true"
-        >
+        android:fitsSystemWindows="true">
+
         <include
             android:id="@+id/sideMenuNav"
-            layout="@layout/side_menu"
-            />
+            layout="@layout/side_menu" />
     </com.google.android.material.navigation.NavigationView>
 
 </androidx.drawerlayout.widget.DrawerLayout>

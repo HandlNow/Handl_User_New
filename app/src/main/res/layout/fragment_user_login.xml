@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserLoginFragment">
+    tools:context=".fragments.UserLoginFragment">
 
     <!--    <EditText-->    <!--        android:id="@+id/emailET"-->
     <!--        android:layout_width="0dp"-->
@@ -33,7 +33,7 @@
 
     <!--    <androidx.fragment.app.FragmentContainerView-->
     <!--        android:id="@id/fragment"-->
-    <!--        android:name="com.example.handlusernew.LoginFragment"-->
+    <!--        android:name="com.dev.handlusernew.LoginFragment"-->
     <!--        android:layout_width="wrap_content"-->
     <!--        android:layout_height="wrap_content" />-->
     <androidx.constraintlayout.widget.ConstraintLayout
