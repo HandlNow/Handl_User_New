@@ -31,6 +31,9 @@ import com.google.android.gms.maps.model.MapStyleOptions
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.tasks.CancellationTokenSource
 import com.google.android.gms.tasks.Task
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import java.util.*
 
 
@@ -158,30 +161,35 @@ class LocationPickFragment : Fragment(), OnMapReadyCallback {
 
             currentLocationTask?.addOnCompleteListener { task: Task<Location> ->
                 if (task.isSuccessful) {
-                    val result: Location = task.result
-                    "Location (success): ${result.latitude}, ${result.longitude}"
-                    mLocation = result
-                    val lc = LatLng(mLocation!!.latitude, mLocation!!.longitude)
-                    mGoogleMap?.clear()
-                    mGoogleMap?.addMarker(
-                        MarkerOptions()
-                            .position(lc)
-                            .title("Your Location")
-                    )
-                    mGoogleMap?.moveCamera(CameraUpdateFactory.newLatLngZoom(lc, 5f))
-                    val addressList =
-                        mGeoCoder?.getFromLocation(mLocation!!.latitude, mLocation!!.longitude, 1)
-                    if (addressList != null && addressList.count() > 0) {
-                        val firstAddress = addressList.firstOrNull()
-                        val locality: String = firstAddress?.locality ?: ""
-                        val country: String = firstAddress?.countryName ?: ""
-                        val city: String = firstAddress?.adminArea ?: ""
+                    GlobalScope.launch(Dispatchers.IO) {
+                        val result: Location = task.result
+                        "Location (success): ${result.latitude}, ${result.longitude}"
+                        mLocation = result
+                        val lc = LatLng(mLocation?.latitude ?: 0.0, mLocation?.longitude ?: 0.0)
+                        this@LocationPickFragment.requireActivity().runOnUiThread {
+                            mGoogleMap?.clear()
+                            mGoogleMap?.addMarker(
+                                MarkerOptions()
+                                    .position(lc)
+                                    .title("Your Location")
+                            )
+                            mGoogleMap?.moveCamera(CameraUpdateFactory.newLatLngZoom(lc, 5f))
+                        }
+                        val addressList =
+                            mGeoCoder?.getFromLocation(mLocation?.latitude ?: 0.0, mLocation?.longitude ?: 0.0, 1)
+                        if (addressList != null && addressList.count() > 0) {
+                            val firstAddress = addressList.firstOrNull()
+                            val locality: String = firstAddress?.locality ?: ""
+                            val country: String = firstAddress?.countryName ?: ""
+                            val city: String = firstAddress?.adminArea ?: ""
+                            this@LocationPickFragment.requireActivity().runOnUiThread {
+                                binding.cityET.setText("$locality,$city")
+                                binding.codeET.setText(country)
+                            }
 
-                        binding.cityET.setText("$locality,$city")
-                        binding.codeET.setText(country)
+                        }
 
                     }
-
                 } else {
                     task.exception?.printStackTrace()
                 }

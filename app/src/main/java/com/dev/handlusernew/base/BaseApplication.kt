@@ -4,7 +4,6 @@ package com.dev.handlusernew.base
 
 import android.annotation.SuppressLint
 import android.app.Application
-import android.graphics.Typeface
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
@@ -22,12 +21,6 @@ open class BaseApplication : Application(), LifecycleEventObserver {
             private set
         var inBackground = false
             private set
-        var fontInterSemiBold: Typeface? = null
-        var fontLatoRegular: Typeface? = null
-        var fontLatoBold: Typeface? = null
-        var fontInterRegular: Typeface? = null
-        var fontSFPRORegular: Typeface? = null
-        var fontSFPROSemiBold: Typeface? = null
 
     }
 

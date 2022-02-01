@@ -47,6 +47,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/current_location"
+                        android:textColor="@color/lightBlack"
                         android:textSize="@dimen/_9sdp" />
 
                     <androidx.appcompat.widget.AppCompatTextView
@@ -56,6 +57,7 @@
                         android:drawableEnd="@drawable/ic_down_arrow"
                         android:drawableTint="@color/Teal"
                         android:text="@string/temp_address"
+                        android:textColor="@color/lightBlack"
                         android:textSize="@dimen/_12sdp"
                         android:textStyle="bold" />
                 </androidx.appcompat.widget.LinearLayoutCompat>

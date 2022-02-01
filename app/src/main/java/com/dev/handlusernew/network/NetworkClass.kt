@@ -16,6 +16,7 @@ import java.text.MessageFormat
 class NetworkClass {
     private var callBack: Response? = null
 
+    //handle response if a base structure is coming from backend
     private fun handleResponse(response: JSONObject) {
         val status: Int = response.optInt("status")
         val message: String = response.optString("message", "") ?: ""
@@ -35,6 +36,7 @@ class NetworkClass {
         }
     }
 
+    // handle network or other kind of api call error
     private fun handleError(error: ANError) {
         Log.w(TAG, MessageFormat.format("APICall{0}", error))
         if (error.errorBody != null) {
@@ -61,7 +63,6 @@ class NetworkClass {
     }
 
 
-    @Deprecated("not Using right now")
     private var responseStringListener: StringRequestListener = object : StringRequestListener {
         override fun onResponse(responseValue: String) {
             val response = JSONObject(responseValue)
@@ -98,25 +99,17 @@ class NetworkClass {
             val headers = HashMap<String, String>()
             if (token?.isNotEmpty() == true) {
                 headers["Authorization"] = "Bearer ${token.trim()}"
-//                headers["session_token"] = "$token"
             }
-//            headers["Accept"] = "application/json"
-//            headers["Content-Type"] = "application/json"
             Log.w(TAG, MessageFormat.format("APICall{0} : {1}", baseLink.param(), baseLink))
             AndroidNetworking.upload(baseLink.link())
                 .addHeaders(headers)
                 .addMultipartFileList(name, file)
-//                .addPathParameter(headers)
                 .addMultipartParameter(baseLink.paramHas())
-//                .addMultipartParameter(headers)
                 .setTag(baseLink)
-//                .setContentType("application/json")
                 .setPriority(Priority.MEDIUM)
                 .build()
                 .getAsJSONObject(call.responseListener)
-//                .addMulti
         }
-
 
 
         fun callApi(
@@ -128,11 +121,9 @@ class NetworkClass {
             val headers = HashMap<String, String>()
             if (token?.isNotEmpty() == true) {
                 headers["Authorization"] = "Bearer ${token.trim()}"
-//                headers["session_token"] = "$token"
             }
             headers["Accept"] = "application/json"
             headers["Content-Type"] = "application/json"
-
             Log.d(
                 TAG,
                 MessageFormat.format(
@@ -145,10 +136,8 @@ class NetworkClass {
             when (baseLink.method) {
                 NetworkMethod.POST -> AndroidNetworking.post(baseLink.link())
                     .addHeaders(headers)
-//                    .addUrlEncodeFormBodyParameter(baseLink.paramHashMap())
                     .addJSONObjectBody(baseLink.param())
                     .setTag(baseLink.link())
-//                    .setContentType("application/json")
                     .setPriority(Priority.MEDIUM)
                     .build()
                     .getAsJSONObject(call.responseListener)

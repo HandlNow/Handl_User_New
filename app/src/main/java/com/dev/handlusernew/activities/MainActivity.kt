@@ -54,11 +54,13 @@ class MainActivity : AppCompatActivity(), DrawerStateInterface {
         arraySideMenu.add(SideMenuModel("Logout", R.drawable.logout_icon))
         binding.sideMenuNav.sideRecycler.layoutManager =
             LinearLayoutManager(this, RecyclerView.VERTICAL, false)
-        val adapter = SideMenuAdapter(this, arraySideMenu) {
+        val adapter = SideMenuAdapter(this, arraySideMenu) { position: Int ->
+            //redirection from position
         }
         binding.sideMenuNav.sideRecycler.adapter = adapter
     }
 
+    //interface call back from fragments to open or close the side menu
     override fun openDrawer(direction: Int) {
         if (binding.drawerLayout.isDrawerOpen(direction)) {
             closeDrawer(direction)
@@ -67,6 +69,7 @@ class MainActivity : AppCompatActivity(), DrawerStateInterface {
         }
     }
 
+    //interface call back from fragments to open or close the side menu
     override fun closeDrawer(direction: Int) {
         binding.drawerLayout.closeDrawer(direction, true)
     }

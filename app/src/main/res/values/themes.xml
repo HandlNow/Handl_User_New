@@ -17,7 +17,7 @@
         <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="s">
             @mipmap/ic_launcher_foregdround12
         </item>
-
+        <item name="android:windowBackground">@drawable/splash_icon</item>
         <!--        <item name="android:windowSplashScreenAnimationDuration" tools:targetApi="s">2000</item>-->
         <!--        <item name="android:windowSplashScreenBackground" tools:targetApi="s">@color/White</item>-->
         <!--        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="s">-->

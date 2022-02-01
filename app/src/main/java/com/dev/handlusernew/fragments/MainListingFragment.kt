@@ -75,9 +75,7 @@ class MainListingFragment : Fragment() {
             (requireActivity() as MainActivity).openMenuListener = object : OpenThePopUpMenu {
                 override fun openMenu(view: View) {
                     val popup = PopupMenu(requireActivity(), view)
-//                    popup.menuInflater.inflate(R.menu.location_selection, popup.menu)
                     popup.menuInflater.inflate(R.menu.location_selection, popup.menu)
-
                     popup.setOnMenuItemClickListener { item ->
                         if (item?.itemId == R.id.ivAddNewAddress) {
                             Navigation.findNavController(mBinding.root)
@@ -124,7 +122,7 @@ class MainListingFragment : Fragment() {
             override fun onSuccessResponse(response: String?, message: String) {
                 mBinding.swipe.isRefreshing = false
                 val array = generateList(
-                    response = response.toString(),
+                    response = response ?: "",
                     Array<CategoryItemModel>::class.java
                 )
                 mCategoryListModelBackup.clear()
