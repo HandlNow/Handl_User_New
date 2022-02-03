@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Base application theme. -->
     <style name="Theme.HandlUserNew" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
@@ -12,12 +12,14 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
-        <item name="android:windowSplashScreenBackground" tools:targetApi="s">#fff</item>
-        <item name="android:windowSplashScreenAnimationDuration" tools:targetApi="s">1000</item>
-        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="s">
-            @mipmap/ic_launcher_foregdround12
-        </item>
-        <item name="android:windowBackground">@drawable/splash_icon</item>
+<!--        <item name="android:windowSplashScreenBackground" tools:targetApi="s">#fff</item>-->
+<!--        <item name="android:windowSplashScreenAnimationDuration" tools:targetApi="s">2000</item>-->
+<!--        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="s">-->
+<!--            @drawable/ic_logo-->
+<!--        </item>-->
+
+<!--&lt;!&ndash;        <item name="android:windowBackground">@drawable/splash_icon</item>&ndash;&gt;-->
+<!--        <item name="postSplashScreenTheme" tools:targetApi="s">@style/Theme.HandlUserNew</item>-->
         <!--        <item name="android:windowSplashScreenAnimationDuration" tools:targetApi="s">2000</item>-->
         <!--        <item name="android:windowSplashScreenBackground" tools:targetApi="s">@color/White</item>-->
         <!--        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="s">-->
@@ -48,6 +50,27 @@
         <!--        &lt;!&ndash; Status bar color. &ndash;&gt;-->
         <!--        &lt;!&ndash;        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>&ndash;&gt;-->
         <!--        &lt;!&ndash; Customize your theme here. &ndash;&gt;-->
+    </style>
+
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+
+
+        // Set the splash screen background, animated icon, and animation duration.
+        <item name="windowSplashScreenBackground" tools:targetApi="S">#FFFFFF</item>
+
+        // Use windowSplashScreenAnimatedIcon to add either a drawable or an
+        // animated drawable. One of these is required.
+        <item name="windowSplashScreenAnimatedIcon" tools:targetApi="S">
+            @drawable/ic_logo
+        </item>
+
+        <item name="windowSplashScreenAnimationDuration" tools:targetApi="S">1000
+        </item>
+        # animated icons
+
+
+        // Set the theme of the Activity that directly follows your splash screen.
+        <item name="postSplashScreenTheme" tools:targetApi="S">@style/Theme.HandlUserNew</item>
     </style>
 
     <style name="Theme.HandlUserNew.NoActionBar">

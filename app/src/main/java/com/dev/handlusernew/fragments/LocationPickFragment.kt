@@ -13,6 +13,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
@@ -47,6 +49,8 @@ class LocationPickFragment : Fragment(), OnMapReadyCallback {
     private lateinit var mBinding: FragmentLocationPickBinding
     private val binding get() = mBinding
 
+    private var locality:String?=null
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,7 +58,8 @@ class LocationPickFragment : Fragment(), OnMapReadyCallback {
     ): View? {
         val view =
             inflater.inflate(R.layout.fragment_location_pick, container, false)
-        mLocation = Location("maps")
+        val supportActionBar: ActionBar? = (requireActivity() as AppCompatActivity).supportActionBar
+        supportActionBar?.hide()
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity())
         requestUserLocationForMainScreen()
         val mapFragment =
@@ -67,6 +72,8 @@ class LocationPickFragment : Fragment(), OnMapReadyCallback {
             Navigation.findNavController(view)
                 .navigate(R.id.action_secondFragment_to_loginFragment)
         }
+        mBinding.shareTV.isEnabled = false
+
         return view
 
     }
@@ -179,12 +186,14 @@ class LocationPickFragment : Fragment(), OnMapReadyCallback {
                             mGeoCoder?.getFromLocation(mLocation?.latitude ?: 0.0, mLocation?.longitude ?: 0.0, 1)
                         if (addressList != null && addressList.count() > 0) {
                             val firstAddress = addressList.firstOrNull()
-                            val locality: String = firstAddress?.locality ?: ""
+                            locality = firstAddress?.locality ?: ""
                             val country: String = firstAddress?.countryName ?: ""
                             val city: String = firstAddress?.adminArea ?: ""
                             this@LocationPickFragment.requireActivity().runOnUiThread {
                                 binding.cityET.setText("$locality,$city")
                                 binding.codeET.setText(country)
+                                mBinding.shareTV.isEnabled = true
+
                             }
 
                         }

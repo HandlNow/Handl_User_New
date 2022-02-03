@@ -32,11 +32,13 @@
         <entry key="..\:/Users/geors/AndroidStudioProjects/HandlUserNew/app/src/main/res/drawable-v24/toast_back.xml" value="0.1" />
         <entry key="..\:/Users/geors/AndroidStudioProjects/HandlUserNew/app/src/main/res/drawable-v24/white_button.xml" value="0.1" />
         <entry key="..\:/Users/geors/AndroidStudioProjects/HandlUserNew/app/src/main/res/drawable-v24/white_rectangle_button.xml" value="0.1" />
+        <entry key="..\:/Users/geors/AndroidStudioProjects/HandlUserNew/app/src/main/res/drawable/background.xml" value="0.1375" />
         <entry key="..\:/Users/geors/AndroidStudioProjects/HandlUserNew/app/src/main/res/drawable/bg_gradient.xml" value="0.1" />
         <entry key="..\:/Users/geors/AndroidStudioProjects/HandlUserNew/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
-        <entry key="..\:/Users/geors/AndroidStudioProjects/HandlUserNew/app/src/main/res/drawable/ic_logo.xml" value="0.11481481481481481" />
+        <entry key="..\:/Users/geors/AndroidStudioProjects/HandlUserNew/app/src/main/res/drawable/ic_logo.xml" value="0.14" />
+        <entry key="..\:/Users/geors/AndroidStudioProjects/HandlUserNew/app/src/main/res/drawable/ic_logo2.xml" value="0.1385" />
         <entry key="..\:/Users/geors/AndroidStudioProjects/HandlUserNew/app/src/main/res/drawable/splash_background.xml" value="0.1" />
-        <entry key="..\:/Users/geors/AndroidStudioProjects/HandlUserNew/app/src/main/res/layout/activity_main.xml" value="0.31069609507640067" />
+        <entry key="..\:/Users/geors/AndroidStudioProjects/HandlUserNew/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/geors/AndroidStudioProjects/HandlUserNew/app/src/main/res/layout/activity_splash.xml" value="0.3546875" />
         <entry key="..\:/Users/geors/AndroidStudioProjects/HandlUserNew/app/src/main/res/layout/content_main.xml" value="0.3546875" />
         <entry key="..\:/Users/geors/AndroidStudioProjects/HandlUserNew/app/src/main/res/layout/drawer_layout.xml" value="0.2" />
@@ -44,39 +46,37 @@
         <entry key="..\:/Users/geors/AndroidStudioProjects/HandlUserNew/app/src/main/res/layout/fragment_lang_selection.xml" value="0.22" />
         <entry key="..\:/Users/geors/AndroidStudioProjects/HandlUserNew/app/src/main/res/layout/fragment_language.xml" value="0.19739583333333333" />
         <entry key="..\:/Users/geors/AndroidStudioProjects/HandlUserNew/app/src/main/res/layout/fragment_language_list.xml" value="0.18333333333333332" />
+        <entry key="..\:/Users/geors/AndroidStudioProjects/HandlUserNew/app/src/main/res/layout/fragment_location_pick.xml" value="0.12048192771084337" />
         <entry key="..\:/Users/geors/AndroidStudioProjects/HandlUserNew/app/src/main/res/layout/fragment_login.xml" value="0.16197916666666667" />
-        <entry key="..\:/Users/geors/AndroidStudioProjects/HandlUserNew/app/src/main/res/layout/fragment_main_screen.xml" value="0.3451086956521739" />
+        <entry key="..\:/Users/geors/AndroidStudioProjects/HandlUserNew/app/src/main/res/layout/fragment_main_screen.xml" value="0.22" />
         <entry key="..\:/Users/geors/AndroidStudioProjects/HandlUserNew/app/src/main/res/layout/fragment_second.xml" value="0.2" />
         <entry key="..\:/Users/geors/AndroidStudioProjects/HandlUserNew/app/src/main/res/layout/fragment_share_location.xml" value="0.259375" />
         <entry key="..\:/Users/geors/AndroidStudioProjects/HandlUserNew/app/src/main/res/layout/fragment_user_login.xml" value="0.26666666666666666" />
         <entry key="..\:/Users/geors/AndroidStudioProjects/HandlUserNew/app/src/main/res/layout/layout_notification.xml" value="0.5" />
+        <entry key="..\:/Users/geors/AndroidStudioProjects/HandlUserNew/app/src/main/res/layout/main_screen_detail_item.xml" value="0.2552083333333333" />
+        <entry key="..\:/Users/geors/AndroidStudioProjects/HandlUserNew/app/src/main/res/layout/main_screen_item.xml" value="0.2552083333333333" />
         <entry key="..\:/Users/geors/AndroidStudioProjects/HandlUserNew/app/src/main/res/layout/menu_toolbar.xml" value="0.2" />
         <entry key="..\:/Users/geors/AndroidStudioProjects/HandlUserNew/app/src/main/res/layout/menubar.xml" value="0.2" />
+        <entry key="..\:/Users/geors/AndroidStudioProjects/HandlUserNew/app/src/main/res/layout/nav_header_main.xml" value="0.23854166666666668" />
+        <entry key="..\:/Users/geors/AndroidStudioProjects/HandlUserNew/app/src/main/res/layout/side_menu.xml" value="0.3496376811594203" />
+        <entry key="..\:/Users/geors/AndroidStudioProjects/HandlUserNew/app/src/main/res/layout/side_menu_item.xml" value="0.3496376811594203" />
         <entry key="..\:/Users/geors/AndroidStudioProjects/HandlUserNew/app/src/main/res/layout/top_app_bar.xml" value="0.17119565217391305" />
         <entry key="..\:/Users/geors/AndroidStudioProjects/HandlUserNew/app/src/main/res/menu/top_app_bar_menu.xml" value="0.5" />
         <entry key="..\:/Users/geors/AndroidStudioProjects/HandlUserNew/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
         <entry key="..\:/Users/geors/AndroidStudioProjects/HandlUserNew/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.11481481481481481" />
         <entry key="..\:/Users/geors/AndroidStudioProjects/HandlUserNew/app/src/main/res/xml/style_json.xml" value="0.30104166666666665" />
         <entry key="app/src/main/res/drawable-v24/grey_rounded_stroke.xml" value="0.10520833333333333" />
-        <entry key="app/src/main/res/drawable-v24/light_blue_button.xml" value="0.198" />
         <entry key="app/src/main/res/drawable/custom_progress_dialog.xml" value="0.1925925925925926" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.1671195652173913" />
-        <entry key="app/src/main/res/layout/drawer_layout.xml" value="0.25416666666666665" />
-        <entry key="app/src/main/res/layout/fragment_blank.xml" value="0.25416666666666665" />
-        <entry key="app/src/main/res/layout/fragment_location_pick.xml" value="0.25416666666666665" />
         <entry key="app/src/main/res/layout/fragment_main_screen.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.25416666666666665" />
-        <entry key="app/src/main/res/layout/fragment_user_login.xml" value="0.25416666666666665" />
-        <entry key="app/src/main/res/layout/layout_notification.xml" value="0.25416666666666665" />
         <entry key="app/src/main/res/layout/main_screen_detail_item.xml" value="0.22" />
         <entry key="app/src/main/res/layout/main_screen_item.xml" value="0.28397674560546876" />
         <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.25416666666666665" />
         <entry key="app/src/main/res/layout/side_menu.xml" value="0.1671195652173913" />
-        <entry key="app/src/main/res/layout/side_menu_item.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/side_menu_item.xml" value="0.22130013831258644" />
         <entry key="app/src/main/res/menu/drawer_menu.xml" value="0.25416666666666665" />
-        <entry key="app/src/main/res/menu/location_selection.xml" value="0.25416666666666665" />
-        <entry key="app/src/main/res/menu/top_app_bar_menu.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>

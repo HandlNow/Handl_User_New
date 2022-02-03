@@ -5,6 +5,8 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.*
 import android.widget.Toast
+import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
@@ -44,6 +46,9 @@ class MainListingFragment : Fragment() {
     ): View {
         val view =
             FragmentMainScreenBinding.inflate(inflater)
+        val supportActionBar: ActionBar? = (requireActivity() as AppCompatActivity).supportActionBar
+        supportActionBar?.show()
+
         mBinding = view
         // Inflate the layout for this fragment
         return view.root

@@ -12,6 +12,7 @@ import okhttp3.OkHttpClient
 import okhttp3.Protocol
 import java.util.concurrent.TimeUnit
 
+
 open class BaseApplication : Application(), LifecycleEventObserver {
 
 
@@ -26,7 +27,9 @@ open class BaseApplication : Application(), LifecycleEventObserver {
 
 
     override fun onCreate() {
+
         super.onCreate()
+
         instance = this
         AndroidNetworking.initialize(this)
         val okHttpClient = OkHttpClient()

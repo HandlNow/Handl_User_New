@@ -25,6 +25,8 @@ android {
         minSdkVersion 24//rootProject.ext.minSdkVersion
         targetSdkVersion 32//rootProject.ext.targetSdkVersion
         consumerProguardFiles 'proguard-rules.pro'
+        vectorDrawables.useSupportLibrary = true
+
     }
     buildTypes {
         release {

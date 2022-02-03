@@ -38,7 +38,7 @@
         android:largeHeap="true"
         android:requestLegacyExternalStorage="true"
         android:supportsRtl="true"
-        android:theme="@style/Theme.HandlUserNew"
+        android:theme="@style/Theme.App.Starting"
         android:usesCleartextTraffic="true">
 
         <activity
